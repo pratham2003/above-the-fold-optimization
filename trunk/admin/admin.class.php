@@ -388,7 +388,7 @@ class Abovethefold_Admin {
 			'parent' => 'abovethefold-check-google',
 			'id' => 'abovethefold-check-google-mobile',
 			'title' => __( 'Google Mobile Test', 'abovethefold' ),
-			'href' => 'https://www.google.com/webmasters/tools/mobile-friendly/?url='.urlencode($currenturl) . '&hl=' . $this->google_lgcode,
+			'href' => 'https://search.google.com/search-console/mobile-friendly?url='.urlencode($currenturl) . '&hl=' . $this->google_lgcode,
 			'meta' => array( 'title' => __( 'Google Mobile Test', 'abovethefold' ), 'target' => '_blank' )
 		) );
 		$admin_bar->add_node( array(
