@@ -103,9 +103,11 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.6.17 =
+* Updated: New [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
+
 = 2.6.16 =
 * Bugfix: Stray script end tags not removed. (@ferares)
-* Updated: New [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
 * Added: support for AMP Supremacy. (@cwfaraday)
 * Added: website monitor resource.
 
