@@ -55,7 +55,7 @@ The HTML5 script loader offers the following unique features:
 * abide WordPress dependencies
 * faster script loading than browser cache, especially on mobile
 
-Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce ratio and when you use Google Analytics, Google will also measure physical site speed.
+Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce rate and when you use Google Analytics, Google will also measure physical site speed.
 
 ### Lazy Loading Javascript
 

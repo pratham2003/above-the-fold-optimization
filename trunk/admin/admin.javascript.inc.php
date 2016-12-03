@@ -58,7 +58,7 @@
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> abide WordPress dependencies</li>
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> faster script loading than browser cache, especially on mobile</li>
 																</ul>
-																<p style="margin-top:10px;">Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce ratio and when you use Google Analytics, Google will also measure physical site speed.</p>
+																<p style="margin-top:10px;">Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce rate and when you use Google Analytics, Google will also measure physical site speed.</p>
 															</p>
 														</div>
 													</td>
