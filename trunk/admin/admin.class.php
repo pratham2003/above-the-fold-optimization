@@ -742,6 +742,9 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 
 		$lgcode = $this->google_lgcode;
 
+		// Google Analytics tracking code
+		$utmstring = $this->utm_string;
+
 		// print tabs
         echo '<div id="icon-themes" class="icon32"><br></div>';
         echo '<h1 class="nav-tab-wrapper">';
