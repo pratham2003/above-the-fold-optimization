@@ -47,7 +47,7 @@
 														<label><input type="radio" name="abovethefold[jsdelivery_scriptloader]" value="html5"<?php if ($jsProxy && isset($options['jsdelivery_scriptloader']) && $options['jsdelivery_scriptloader'] === 'html5') { print ' checked'; } ?> <?php if (!$jsProxy) { print ' DISABLED'; } ?>> little-loader + HTML5 Web Worker and Fetch API based script loader with localStorage cache</label>
 														<p class="description" style="color:red;<?php if ($jsProxy) { print 'display:none;'; } ?>">This script loader requires the <a href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'proxy' ), admin_url( 'admin.php' ) ); ?>">Javascript proxy</a> to be enabled to bypass <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS" target="_blank">CORS</a>.</p> 
 														<p class="description">A state of the art script loader for optimal mobile speed, inspired by <a href="https://addyosmani.com/basket.js/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">basket.js</a> (by a Google engineer), a script loading concept in use by Google. With fallback to little-loader for old browsers.</p>
-														<fieldset style="border:solid 1px #efefef;padding:10px;margin:0px;margin-top:7px;background:#f1f1f1;">
+														<div class="info_yellow">
 															<p class="description" style="margin-top:0px;">
 																<strong>Advantages of the HTML5 script loader (an innovation by this plugin)</strong>
 															</p>
@@ -58,11 +58,9 @@
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> abide WordPress dependencies</li>
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> faster script loading than browser cache, especially on mobile</li>
 																</ul>
+																<p style="margin-top:10px;">Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce ratio and when you use Google Analytics, Google will also measure physical site speed.</p>
 															</p>
-														</fieldset>
-														<br />
-														<strong>Minification and code performance optimization</strong>
-														<p class="description">Interested in <a href="https://developers.google.com/closure/compiler/?hl=<?php print $lgcode;?>" target="_blank">Google Closure Compiler</a> javascript minification with code speed optimization and the ability to combine all scripts, including script injected scripts such as Google Analytics into a single optimized download with individual script loading from localStorage cache for the best first page load, navigation and returning visitor performance unmatched by any other plugin or even anything on the web? You can help fund it by donating to PayPal <a href="mailto:info@pagespeed.pro">info@pagespeed.pro</a> with reference <code>Google Closure Compiler</code>. 1500 USD is required to make it available.</p>
+														</div>
 													</td>
 												</tr>
 												<tr valign="top">

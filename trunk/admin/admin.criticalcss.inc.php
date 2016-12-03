@@ -7,21 +7,22 @@
 					<div class="postbox">
 
 						<h3 class="hndle">
-							<span><?php _e( 'Critical CSS', 'abovethefold' ); ?></span>
+							<span><?php _e( 'Critical Path CSS', 'abovethefold' ); ?></span>
 						</h3>
 						<div class="inside testcontent">
-
-							<div style="background:#f1f1f1;padding:10px;margin-top:10px;margin-bottom:20px;">
-								Critical CSS is the minimum CSS required to render above the fold content (<a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent?hl=<?php print $lgcode;?>" target="_blank">documentation by Google</a>).
-								<br />
-								<a href="https://github.com/addyosmani/critical-path-css-tools" target="_blank">This article</a> by a Google engineer provides information about the available methods for creating critical path CSS. Check out <a href="https://criticalcss.com/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=PageSpeed.pro%3A%20Above%20The%20Fold%20Optimization" target="_blank">CriticalCSS.com</a> for an easy automated critical path CSS generator.
+							<p>Critical Path CSS is the minimum CSS required to render above the fold content. Please read the <a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent?hl=<?php print $lgcode;?>" target="_blank">documentation by Google</a> before you continue.</p>
+							<p><a href="https://github.com/addyosmani/critical-path-css-tools" target="_blank">This article</a> by a Google engineer provides information about the available methods for creating critical path CSS. <a href="https://addyosmani.com/blog/detecting-critical-above-the-fold-css-with-paul-kinlan-video/?<?php print $utmstring; ?>" target="_blank">This blog</a> (with video) by two Google engineers provides information about the essence of Critical Path CSS creation.</p>
+							<p>This plugin offers a tool for professional Critical Path CSS creation (see <a href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'build-tool' ), admin_url( 'admin.php' ) ); ?>">Creator-tab</a>). The tool is based on <a href="https://github.com/addyosmani/critical" target="_blank">critical</a> by a Google engineer.</p>
+							<p>Check out <a href="https://criticalcss.com/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=PageSpeed.pro%3A%20Above%20The%20Fold%20Optimization" target="_blank">CriticalCSS.com</a> for an automated critical path CSS generator.</p>
+							<div class="info_yellow">
+								<p style="margin:0px;"><strong>Tip:</strong> If you notice a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">Flash of Unstyled Content</a> (FOUC), use the <a href="'.add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'compare' ), admin_url( 'admin.php' ) ).'">Quality Test-tab</a> to fine tune the critical path CSS for a perfect above the fold display.</p>
 							</div>
 
 							<table class="form-table">
 								<tr valign="top">
 									<td class="criticalcsstable">
 
-										<h3 style="padding:0px;margin:0px;margin-bottom:10px;">Critical CSS</h3>
+										<h3 style="padding:0px;margin:0px;margin-bottom:10px;">Critical Path CSS</h3>
 
 										<p class="description" style="margin-bottom:1em;"><?php _e('Configure the Critical Path CSS to be inserted inline into the <code>&lt;head&gt;</code> of the page.', 'abovethefold'); ?></p>
 

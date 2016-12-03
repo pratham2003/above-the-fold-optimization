@@ -48,12 +48,14 @@ The plugin offers advanced options such as a render delay in milliseconds, the p
 
 The plugin contains a tool to optimize loading of javascript via an enhanced version of [little-loader](https://github.com/walmartlabs/little-loader) from Walmart Labs ([reference](https://formidable.com/blog/2016/01/07/the-only-correct-script-loader-ever-made/)) or a state of the art HTML5 Web Worker and Fetch API based script loader with localStorage cache. The tool contains a jQuery Stub and it enables async loading of all javascript files, optionally abiding WordPress dependency configuration.
 
-The HTML5 script loader (an innovation by this plugin) offers the following unique features:
+The HTML5 script loader offers the following unique features:
 
 * 0 javascript file download during navigation
 * 0 javascript file download for returning visitors
 * abide WordPress dependencies
 * faster script loading than browser cache, especially on mobile
+
+Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce ratio and when you use Google Analytics, Google will also measure physical site speed.
 
 ### Lazy Loading Javascript
 
@@ -75,7 +77,7 @@ The plugin contains a tool to localize (proxy) external javascript and CSS resou
 
 The plugin contains a tool to optimize web fonts. The plugin automatically parses web font `@import` links in minified CSS files and `<link>` links in the HTML and loads the fonts via [Google Web Font Loader](https://github.com/typekit/webfontloader).
 
-### Gulp.js Critical CSS Generator Task Manager
+### Gulp.js Critical CSS Generator Creator
 
 The plugin contains a tool to manage Critical CSS Generator tasks that optionally automatically updates WordPress Critical CSS. The tool is based on [critical](https://github.com/addyosmani/critical) (by a Google engineer) and makes it possible for designers and less experienced WordPress users to create professional quality Critical CSS in just a few seconds. The tool is intended to make it more efficient to maintain perfect quality Critical CSS.
 
@@ -100,6 +102,11 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 8. Gulp.js Critical CSS Generator Task Manager
 
 == Changelog ==
+
+= 2.6.16 =
+* Bugfix: Stray script end tags not removed (@ferares).
+* Added: support for AMP Supremacy (@cwfaraday)
+* Added: website monitor resource.
 
 = 2.6.15 =
 * Bugfix: Critical Path CSS Build Tool Task Manager permissions not set correctly when automatically updating WordPress critical CSS.

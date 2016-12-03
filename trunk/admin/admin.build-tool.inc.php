@@ -19,7 +19,7 @@
 				<div id="post-body-content">
 					<div class="postbox">
 						<h3 class="hndle">
-							<span><?php _e( 'Build Tool Critical Path CSS Creation', 'abovethefold' ); ?></span>
+							<span><?php _e( 'Critical Path CSS Creator', 'abovethefold' ); ?></span>
 						</h3>
 						<div class="inside testcontent">
 

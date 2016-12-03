@@ -48,8 +48,9 @@ class Abovethefold_Admin {
     	'javascript' => 'Javascript',
     	'proxy' => 'Proxy',
     	'settings' => 'Settings',
-    	'build-tool' => 'Build Tool',
-		'compare' => 'Quality Test'
+    	'build-tool' => 'Creator',
+		'compare' => 'Quality Test',
+		'monitor' => 'Monitor'
     );
 
 	/**
@@ -123,6 +124,7 @@ class Abovethefold_Admin {
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/admin.proxy.class.php';
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/admin.settings.class.php';
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/admin.build-tool.class.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/admin.monitor.class.php';
 
 			/**
 			 * Load critical CSS management
@@ -153,6 +155,11 @@ class Abovethefold_Admin {
 			 * Load settings management
 			 */
 			$this->buildtool = new Abovethefold_Admin_BuildTool( $CTRL );
+
+			/**
+			 * Load monitor management
+			 */
+			$this->monitor = new Abovethefold_Admin_Monitor( $CTRL );
 
 		}
 
@@ -753,6 +760,7 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 			case "extract":
 			case "compare":
 			case "build-tool":
+			case "monitor":
 				require_once('admin.'.$tab.'.inc.php');
 			break;
 		}

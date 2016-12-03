@@ -72,6 +72,7 @@ class Abovethefold_Admin_CriticalCSS {
 					 */
 					wp_enqueue_style( 'abtf_codemirror', plugin_dir_url( __FILE__ ) . 'css/codemirror.min.css' );
 					wp_enqueue_script( 'abtf_codemirror', plugin_dir_url( __FILE__ ) . 'js/codemirror.min.js', array( 'jquery','jquery-ui-resizable','abtf_admincp' ) );
+
 				}
 
 			break;

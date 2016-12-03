@@ -17,7 +17,7 @@
     "mode/*/*test.js",
     "mode/*/*.html"
   ],
-  "homepage": "https://github.com/marijnh/CodeMirror",
+  "homepage": "https://github.com/components/codemirror",
   "version": "5.18.2",
   "_release": "5.18.2",
   "_resolution": {
@@ -25,7 +25,7 @@
     "tag": "5.18.2",
     "commit": "9f956167752049da7263d9a8135038c820fdf228"
   },
-  "_source": "https://github.com/marijnh/CodeMirror.git",
+  "_source": "https://github.com/components/codemirror.git",
   "_target": "5.18.2",
   "_originalSource": "codemirror"
 }

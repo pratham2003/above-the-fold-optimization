@@ -1,7 +1,8 @@
 
 .g100 {
     display: inline-block;
-    font: 1em sans-serif;
+    font-family:Roboto, sans-serif;
+    font-size:1em;
     color: #fff;
     background-color: #079c2d;
     padding: 2px 4px;
@@ -233,4 +234,51 @@ textarea.abtfcmd {
     100% { 
         opacity: 0.5;
     }
+}
+
+
+.warning_red {
+    background: #FFF8F8;
+    border: solid 2px red;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:20px;
+    color:black;
+}
+.ok_green {
+    background: #F6FFF9;
+    border: solid 2px #079c2d;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:20px;
+    color:black;
+}
+.info_yellow {
+    background: #FEFBF0;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:20px;
+    border: solid 1px #FFDF82;
+}
+.info_yellow .mark {
+   
+}
+
+.info_seagreen {
+    background: #F1FFFE;
+    border: solid 1px #019e97;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:20px;
+    color:black;
+}
+.info_seagreen a {
+    color:#019e97;
+}
+
+.uptime table.inside th {
+    text-align:left;
+}
+.uptime table.inside thead th {
+    border-bottom:solid 1px #efefef;
 }

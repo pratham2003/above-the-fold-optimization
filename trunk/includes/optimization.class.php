@@ -240,7 +240,7 @@ class Abovethefold_Optimization {
 		$scripts = array();
 
 		// script regex
-		$script_regex = '#(<\!--\[if[^>]+>\s*)?<script[^>]+>#is';
+		$script_regex = '#(<\!--\[if[^>]+>\s*)?<script[^>]+src[^>]+>([^<]*</script>)?#is';
 
 		if (preg_match_all($script_regex,$HTML,$out)) {
 
