@@ -15,7 +15,7 @@
 							<p>This plugin offers a tool for professional Critical Path CSS creation (see <a href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'build-tool' ), admin_url( 'admin.php' ) ); ?>">Creator-tab</a>). The tool is based on <a href="https://github.com/addyosmani/critical" target="_blank">critical</a> by a Google engineer.</p>
 							<p>Check out <a href="https://criticalcss.com/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=PageSpeed.pro%3A%20Above%20The%20Fold%20Optimization" target="_blank">CriticalCSS.com</a> for an automated critical path CSS generator.</p>
 							<div class="info_yellow">
-								<p style="margin:0px;"><strong>Tip:</strong> If you notice a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">Flash of Unstyled Content</a> (FOUC), use the <a href="'.add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'compare' ), admin_url( 'admin.php' ) ).'">Quality Test-tab</a> to fine tune the critical path CSS for a perfect above the fold display.</p>
+								<p style="margin:0px;"><strong>Tip:</strong> If you notice a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">Flash of Unstyled Content</a> (FOUC), use the <a href="<?php print add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'compare' ), admin_url( 'admin.php' ) ); ?>">Quality Test-tab</a> to fine tune the critical path CSS for a perfect above the fold display.</p>
 							</div>
 
 							<table class="form-table">
