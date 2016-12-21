@@ -338,7 +338,7 @@ class Abovethefold_Upgrade {
 				'genurls',
 				'localizejs_enabled',
 				'conditionalcss_enabled',
-				//'conditional_css'
+				//'conditional_css' 
 			);
 			foreach ($old_options as $opt) {
 				if (isset($options[$opt])) {

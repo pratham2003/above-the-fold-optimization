@@ -105,7 +105,7 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 = 2.7.0 =
 * Updated: Critical CSS file storage location moved to theme directory.
-* Added: file based critical CSS configuration to allow editing via FTP (and shipping with a theme).
+* Added: file based critical CSS configuration to allow editing via FTP.
 * Added: Critical CSS filter function condition.
 * Added: append/prepend CSS file(s) to critical CSS.
 * Added: Google Font zip-file upload and extract in theme directory.
