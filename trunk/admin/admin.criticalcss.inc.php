@@ -58,7 +58,7 @@
 							</table>
 
 							<h1 id="filter">Custom Critical CSS Condition</h1>
-							<p>You can add custom critical CSS conditions using a filter function. For example, if you want to add critical CSS for blog category X, you can use the following filter function.</p>
+							<p>You can add a custom critical CSS condition using a filter function. For example, if you want to add critical CSS for blog category X, you can use the following filter function.</p>
 							<blockquote><pre>
 /**
  * Custom Critical Path CSS Condition
