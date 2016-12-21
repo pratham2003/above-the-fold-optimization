@@ -198,7 +198,7 @@
 															<h1>How to place Google Fonts locally</h1>
 
 
-															<p>Select the option "<em>Disabled (remove all fonts)</em>" from the webfont.js Load Method menu (above) to remove dynamic and static Google fonts from HTML and CSS.</p>
+															<p>Select the option "<em>Disabled (remove all fonts)</em>" from the webfont.js Load Method menu (above) to remove dynamic and static Google fonts from the HTML and CSS.</p>
 															
 															<h4 class="h" style="margin-bottom:10px;margin-top:15px;">Step 1: download the font files and CSS</h4>
 
