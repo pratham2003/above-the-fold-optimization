@@ -651,7 +651,7 @@ class Abovethefold_Critical_CSS {
 				$criticalCSS = '
 /*!
  * Above The Fold Optimization ' . $this->CTRL->get_version() . '
- * This message is visible to admin and editors only.
+ * This message is visible to admins and editors only.
  *
 ' . htmlentities($servedfiles, ENT_COMPAT, 'utf-8') . $matchedconditions . $debugnotice . '
  */
