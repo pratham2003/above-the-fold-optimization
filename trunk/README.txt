@@ -109,7 +109,7 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 * Added: Critical CSS filter function condition.
 * Added: append/prepend CSS file(s) to critical CSS.
 * Added: Google Font zip-file upload and extract in theme directory.
-* Added: enhanced Critical CSS debug comment for logged in administrators.
+* Added: enhanced Critical CSS debug comment.
 
 = 2.6.17 =
 * Updated: new [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
