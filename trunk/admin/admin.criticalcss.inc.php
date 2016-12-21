@@ -56,6 +56,30 @@
 									</td>
 								</tr>
 							</table>
+
+							<h1 id="filter">Custom Critical CSS Condition</h1>
+							<p>You can add custom critical CSS conditions using a filter function. For example, if you want to add critical CSS for blog category X, you can use the following filter function.</p>
+							<blockquote><pre>
+/**
+ * Custom Critical Path CSS Condition
+ *
+ * @plugin Above The Fold Optimization
+ * @link https://wordpress.org/plugins/above-the-fold-optimization/
+ */
+function my_critical_css_condition( $params = array() ) {
+
+	// Category X?
+	if (is_category('x')) {
+		return true; // match
+	}
+
+	return false; // no match
+}</pre></blockquote>
+
+							<p>To add the condtion to a critical CSS file, type <code>filter:my_critical_css_condition</code> in the condition search field. You can add a comma separated list with JSON encoded values to be passed to the filter <code>$params</code> by appending <code>:1,2,3,"variable","var"</code>. The filter function should return true or false.</p>
+						
+							<br />
+							
 						</div>
 					</div>
 

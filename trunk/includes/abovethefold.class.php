@@ -181,8 +181,14 @@ class Abovethefold {
 		$this->plugins = new Abovethefold_Plugins( $this );
 		$this->plugins->load_modules();
 
+		/**
+		 * Critical CSS optimization controller
+		 */
+		$this->criticalcss = new Abovethefold_Critical_CSS($this);
+
 		// load optimization controller
 		$this->optimization = new Abovethefold_Optimization( $this );
+
 
 		// load lazy script loading module
 		$this->lazy = new Abovethefold_LazyScripts($this);
@@ -338,6 +344,11 @@ class Abovethefold {
 		require_once WPABTF_PATH . 'includes/optimization.class.php';
 
 		/**
+		 * The class responsible for defining all actions related to critical css optimization.
+		 */
+		require_once WPABTF_PATH . 'includes/critical-css.class.php';
+
+		/**
 		 * The class responsible for defining all actions related to lazy script loading.
 		 */
 		require_once WPABTF_PATH . 'includes/lazyscripts.class.php';
@@ -470,7 +481,7 @@ class Abovethefold {
 				wp_die('Failed to write to ' . $path);
 			}
 		}
-		return apply_filters('abovethefold_cache_path', $path);
+		return apply_filters('abtf_cache_path', $path);
 	}
 
 	/**
@@ -485,6 +496,60 @@ class Abovethefold {
 			$path = trailingslashit($dir['baseurl']) . 'abovethefold/';
 		}
 		return apply_filters('abtf_cache_dir', $path);
+	}
+
+	/**
+	 * Theme content path
+	 */
+	public function theme_path( $type = false ) {
+
+		$path = trailingslashit(get_stylesheet_directory()) . 'abovethefold/';
+		if (!is_dir($path)) {
+
+			if (!@mkdir( $path, $this->CHMOD_DIR)) {
+				wp_die('Failed to write to ' . $path);
+			}
+
+			// put readme in /abovethefold/ directory
+			file_put_contents( $path . 'readme.txt', file_get_contents( WPABTF_PATH . 'public/readme.txt' ) );
+		}
+
+		if ($type) {
+			switch ($type) {
+				case "critical-css":
+					$path .= 'css/';
+					if (!is_dir($path)) {
+						if (!@mkdir( $path, $this->CHMOD_DIR)) {
+							wp_die('Failed to write to ' . $path);
+						}
+					}
+				break;
+			}
+		}
+
+		return apply_filters('abtf_theme_path', $path);
+	}
+
+	/**
+	 * Theme content URL
+	 */
+	public function theme_dir( $cdn = '', $type = false ) {
+
+		if ($cdn !== '') {
+			$path = trailingslashit($cdn) . trailingslashit(str_replace(trailingslashit(ABSPATH),'',get_stylesheet_directory_uri())) . 'abovethefold/';
+		} else {
+			$path = trailingslashit(get_stylesheet_directory_uri()) . 'abovethefold/';
+		}
+
+		if ($type) {
+			switch ($type) {
+				case "critical-css":
+					$path .= 'css/';
+				break;
+			}
+		}
+
+		return apply_filters('abtf_theme_dir', $path);
 	}
 
 	/**

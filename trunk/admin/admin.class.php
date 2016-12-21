@@ -43,12 +43,13 @@ class Abovethefold_Admin {
 	 * Tabs
 	 */
 	public $tabs = array(
+    	'intro' => 'Intro',
     	'criticalcss' => 'Critical CSS',
     	'css' => 'CSS',
     	'javascript' => 'Javascript',
     	'proxy' => 'Proxy',
     	'settings' => 'Settings',
-    	'build-tool' => 'Creator',
+    	'build-tool' => 'Critical CSS Creator',
 		'compare' => 'Quality Test',
 		'monitor' => 'Monitor'
     );
@@ -733,11 +734,11 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 <?php
 
 		// active tab
-		$tab = (isset($_REQUEST['tab'])) ? trim($_REQUEST['tab']) : 'criticalcss';
+		$tab = (isset($_REQUEST['tab'])) ? trim($_REQUEST['tab']) : 'intro';
 
 		// invalid tab
 		if (!isset($this->tabs[$tab])) {
-			$tab = 'criticalcss';
+			$tab = 'intro';
 		}
 
 		$lgcode = $this->google_lgcode;
@@ -769,6 +770,7 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 			case "compare":
 			case "build-tool":
 			case "monitor":
+			case "intro":
 				require_once('admin.'.$tab.'.inc.php');
 			break;
 		}
@@ -844,184 +846,6 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 	}
 
     /**
-	 * Upgrade plugin
-	 */
-	public function upgrade() {
-
-		$current_version = get_option( 'wpabtf_version' );
-		$options = get_option( 'abovethefold' );
-		$update_options = false;
-
-		if (!defined('WPABTF_VERSION') || WPABTF_VERSION !== $current_version) {
-
-			update_option( 'wpabtf_version', WPABTF_VERSION, false );
-
-			/**
-			 * Pre 2.5.0 update
-			 */
-			if (version_compare($current_version, '2.5.0', '<')) {
-
-				/**
-				 * Move global critical CSS to new location
-				 */
-
-				$global_cssfile = $this->CTRL->cache_path() . 'criticalcss_global.css';
-
-				if (!file_exists($global_cssfile)) {
-					
-					// Check old location
-					$old_cssfile = $this->CTRL->cache_path() . 'inline.min.css';
-					if (file_exists($old_cssfile)) {
-
-						/**
-						 * Move file to new location
-						 */
-						$old_css = file_get_contents( $old_cssfile );
-						
-						// store contents of old css to new location
-						file_put_contents( $global_cssfile, $old_css );
-						if (!file_exists($global_cssfile) || file_get_contents( $global_cssfile ) !== $old_css) {
-							wp_die('Failed to move critical CSS file to new location (v2.5+). Please check the write permissions for file:<br /><br /><strong>' . $global_cssfile . '</strong><br /><br />Old critical css file location:<br /><br />'.$old_cssfile.' ');
-						}
-
-						@unlink( $old_cssfile );
-					}
-				}
-
-				/**
-				 * Disable Google Web Font Optimizer plugin if ABTF Webfont Optimization is enabled
-				 */
-				if ($options['gwfo']) {
-					@deactivate_plugins( 'google-webfont-optimizer/google-webfont-optimizer.php' );
-
-					$options['gwfo_loadmethod'] = 'inline';
-					$options['gwfo_loadposition'] = 'header';
-					$update_options = true;
-				}
-
-				/**
-				 * Enable external resource proxy if Localize Javascript is enabled
-				 */
-				if ($options['localizejs_enabled']) {
-
-					$options['js_proxy'] = true;
-					$options['css_proxy'] = true;
-					$update_options = true;
-				}
-			}
-
-			/**
-			 * Pre 2.5.11 update
-			 */
-			if (version_compare($current_version, '2.5.10', '<=')) {
-
-				// convert url list to array
-				$newline_conversion = array(
-					'gwfo_googlefonts',
-					'cssdelivery_ignore',
-					'cssdelivery_remove',
-					'css_proxy_preload',
-					'js_proxy_preload',
-					'css_proxy_include',
-					'js_proxy_include',
-					'css_proxy_exclude',
-					'js_proxy_exclude'
-
-				);
-				foreach ($newline_conversion as $field) {
-					if (isset($options[$field]) && is_string($options[$field])) {
-						$options[$field] = $this->newline_array($options[$field]);
-						$update_options = true;
-					}
-				}
-
-				/**
-				 * Verify Google WebFontConfig variable
-				 */
-				if (isset($options['gwfo_config']) && $options['gwfo_config'] !== '') {
-
-					if ($this->CTRL->gwfo->verify_webfontconfig($options['gwfo_config'])) {
-						$options['gwfo_config_valid'] = true;
-					} else {
-						$options['gwfo_config_valid'] = false;
-					}
-
-					$update_options = true;
-					
-					// Extract Google Fonts
-					$this->CTRL->gwfo->fonts_from_webfontconfig($options['gwfo_config'],$options['gwfo_googlefonts']);
-
-					// modify Google font config in WebFontConfig
-					$googlefonts_regex = '|google\s*:\s*(\{[^\}]+\})|is';
-					if (preg_match($googlefonts_regex,$options['gwfo_config'],$out)) {
-
-						$config = @json_decode($this->CTRL->gwfo->fixJSON($out[1]),true);
-						if (is_array($config) && isset($config['families'])) {
-							$config['families'] = 'GOOGLE-FONTS-FROM-INCLUDE-LIST';
-							$options['gwfo_config'] = preg_replace($googlefonts_regex,'google:' . json_encode($config),$options['gwfo_config']);
-						}
-					}
-				} else {
-					$options['gwfo_config_valid'] = true;
-
-					$update_options = true;
-				}
-			}
-
-			/**
-			 * Pre 2.6.1 update
-			 */
-			if (version_compare($current_version, '2.6.4', '<=')) {
-
-				if (!isset($options['jsdelivery'])) {
-					$options['jsdelivery'] = false;
-				}
-				if (!isset($options['jsdelivery_position'])) {
-					$options['jsdelivery_position'] = 'header';
-				}
-				if (!isset($options['jsdelivery_jquery'])) {
-					$options['jsdelivery_jquery'] = true;
-				}
-				if (!isset($options['jsdelivery_deps'])) {
-					$options['jsdelivery_deps'] = true;
-				}
-				if (!isset($options['jsdelivery_scriptloader'])) {
-					$options['jsdelivery_scriptloader'] = 'little-loader';
-				}
-				
-				$update_options = true;
-			}
-
-			// remove old options
-			$old_options = array(
-				'dimensions',
-				'phantomjs_path',
-				'cleancss_path',
-				'remove_datauri',
-				'urls',
-				'genurls',
-				'localizejs_enabled'
-			);
-			foreach ($old_options as $opt) {
-				if (isset($options[$opt])) {
-					unset($options[$opt]);
-					$update_options = true;
-				}
-			}
-
-			if ($update_options) {
-				update_option('abovethefold', $options, true);
-			}
-
-			/**
-			 * Clear full page cache
-			 */
-			$this->CTRL->plugins->clear_pagecache();
-
-		}
-    }
-
-    /**
      * Return newline array from string
      */
     public function newline_array($string,$data=array()) {
@@ -1048,6 +872,15 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
     public function newline_array_string($array) {
     	if (!is_array($array) || empty($array)) { return ''; }
     	return htmlentities(implode("\n",$array),ENT_COMPAT,'utf-8');
+    }
+
+    /**
+	 * Upgrade plugin
+	 */
+	public function upgrade() {
+		require_once WPABTF_PATH . 'admin/upgrade.class.php';
+		$upgrade = new Abovethefold_Upgrade($this->CTRL);
+		$upgrade->upgrade();
     }
 
 }

@@ -3,7 +3,7 @@ Contributors: optimalisatie
 Donate link: https://pagespeed.pro/
 Tags: optimization, above the fold, critical css, css, performance, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, pagespeed, google, web font, webfont
 Requires at least: 3.0.1
-Tested up to: 4.6.1
+Tested up to: 4.7.0
 Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,7 @@ The HTML5 script loader offers the following unique features:
 * abide WordPress dependencies
 * faster script loading than browser cache, especially on mobile
 
-Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce rate and when you use Google Analytics, Google will also measure physical site speed.
+Saving javascript requests will result in a faster load speed for returning visitors.
 
 ### Lazy Loading Javascript
 
@@ -77,9 +77,9 @@ The plugin contains a tool to localize (proxy) external javascript and CSS resou
 
 The plugin contains a tool to optimize web fonts. The plugin automatically parses web font `@import` links in minified CSS files and `<link>` links in the HTML and loads the fonts via [Google Web Font Loader](https://github.com/typekit/webfontloader).
 
-### Gulp.js Critical CSS Generator Creator
+### Gulp.js Critical CSS Creator
 
-The plugin contains a tool to manage Critical CSS Generator tasks that optionally automatically updates WordPress Critical CSS. The tool is based on [critical](https://github.com/addyosmani/critical) (by a Google engineer) and makes it possible for designers and less experienced WordPress users to create professional quality Critical CSS in just a few seconds. The tool is intended to make it more efficient to maintain perfect quality Critical CSS.
+The plugin contains a tool to manage Critical CSS Generator tasks that optionally automatically update WordPress Critical CSS. The tool is based on [critical](https://github.com/addyosmani/critical) (by a Google engineer) and makes it possible for designers and less experienced WordPress users to create professional quality Critical CSS in just a few seconds. The tool is intended to make it more efficient to maintain perfect quality Critical CSS.
 
 == Installation ==
 
@@ -103,11 +103,19 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.0 =
+* Updated: Critical CSS file storage location moved to theme directory.
+* Added: file based critical CSS configuration to allow editing via FTP and to allow shipping critical CSS with a theme.
+* Added: Critical CSS condition via filter function.
+* Added: append/prepend CSS file(s) to critical CSS.
+* Added: Google Font zip-file upload and extract in theme directory.
+* Added: enhanced Critical CSS debug comment for logged in administrators and editors.
+
 = 2.6.17 =
-* Updated: New [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
+* Updated: new [Google Mobile Indexation Test](https://search.google.com/search-console/mobile-friendly).
 
 = 2.6.16 =
-* Bugfix: Stray script end tags not removed. (@ferares)
+* Bugfix: stray script end tags not removed. (@ferares)
 * Added: support for AMP Supremacy. (@cwfaraday)
 * Added: website monitor resource.
 

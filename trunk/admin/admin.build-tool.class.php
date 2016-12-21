@@ -102,22 +102,14 @@ class Abovethefold_Admin_BuildTool {
 
 		// Update
 		if ($update) {
-			if ($update === 'global') {
+			$criticalcss_files = $this->CTRL->criticalcss->get_theme_criticalcss();
+			if (!isset($criticalcss_files[$update])) {
+				$this->CTRL->admin->set_notice('You did not select a valid conditional CSS file to update.', 'ERROR');
+				wp_redirect( add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'build-tool','taskname' => $taskname, 'dimensions' => $dimensions, 'extra' => $extra, 'update' => $update ), admin_url( 'admin.php' ) ) );
 
-				// update global critical CSS
-			} else {
-
-				$conditionalcss_enabled = (isset($options['conditionalcss_enabled']) && intval($options['conditionalcss_enabled']) === 1) ? true : false;
-
-				// conditional critical CSS
-				if ($conditionalcss_enabled && !empty($options['conditional_css']) && isset($options['conditional_css'][$update])) {
-					$key = $update;
-					$update = $options['conditional_css'][$update];
-					$update['key'] = $key;
-				} else {
-					$update = false;
-				}
 			}
+		} else {
+			$update = false;
 		}
 
 		// get page JSON
@@ -192,6 +184,23 @@ class Abovethefold_Admin_BuildTool {
 			}
 		}
 
+		$gulp_installed = is_dir($gulpdir . 'node_modules/');
+
+		// gulp-header added in version 2.7
+		// @since 2.7
+		if (!is_dir($gulpdir . 'node_modules/gulp-header/')) {
+			
+			// remove package / gulpfile to re-create in next steps
+			if (file_exists($gulpdir . 'package.json')) {
+				@unlink($gulpdir . 'package.json');
+			}
+			if (file_exists($gulpdir . 'gulpfile.js')) {
+				@unlink($gulpdir . 'gulpfile.js');
+			}
+
+			$gulp_installed = false;
+		}
+
 		// copy package.json if it does not exist
 		if (!file_exists($gulpdir . 'package.json')) {
 			copy( WPABTF_PATH . 'modules/critical-css-build-tool/package.json', $gulpdir . 'package.json' );
@@ -248,7 +257,7 @@ class Abovethefold_Admin_BuildTool {
 		file_put_contents($gulptaskdir . '/gulp-critical-task.js',$taskjs);
 		chmod( $gulptaskdir . '/gulp-critical-task.js', $this->CTRL->CHMOD_FILE );
 
-		$gulp_installed = is_dir($gulpdir . 'node_modules/');
+		
 
 		// add notice
 		$this->CTRL->admin->set_notice('<div style="font-size:18px;line-height:20px;margin:0px;">The package has been installed in <strong>'.trailingslashit(str_replace(home_url(),'',get_stylesheet_directory_uri())).'abovethefold/</strong>

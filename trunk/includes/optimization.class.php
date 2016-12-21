@@ -1112,7 +1112,7 @@ class Abovethefold_Optimization {
 		/**
 		 * Load Critical CSS from file
 		 */
-		$inlineCSS = trim((file_exists($criticalcss_file)) ? file_get_contents($criticalcss_file) : '');
+		$inlineCSS = $this->CTRL->criticalcss->get();
 
 		// debug enabled?
 		$debug = (current_user_can('administrator') && intval($this->CTRL->options['debug']) === 1) ? true : false;
@@ -1241,72 +1241,7 @@ class Abovethefold_Optimization {
 		$inlineJS .= 'Abtf.h(' . json_encode($jssettings) . ');';
 		print '<script rel="abtf">' . $inlineJS . '</script>';
 
-		print '<style type="text/css" rel="abtf" id="AbtfCSS">';
-
-		/**
-		 * Hide Critical CSS for verification view
-		 */
-		if ($this->CTRL->view === 'abtf-critical-verify' || $this->CTRL->view === 'abtf-buildtool-html') {
-			if ($debug) {
-				print '
-/*!
- * Above The Fold Optimization ' . $this->CTRL->get_version() . '
- * Full CSS View
- * No Critical CSS
- */
-';
-			}
-		}
-
-		/**
-		 * Include inline CSS
-		 */
-		 else if ($inlineCSS !== '') {
-
-			/**
-			 * Debug header
-			 */
-			if ($debug) {
-				print '
-/*!
- * Above The Fold Optimization ' . $this->CTRL->get_version() . '
- * Debug enabled (admin only)
- * Critical CSS: ' . htmlentities($criticalcss_name, ENT_COMPAT, 'utf-8') . (($criticalcss_conditional) ? ' (conditional)': '') . '
- */
-';
-			}
-
-			print $inlineCSS;
-
-		} else {
-
-			/**
-			 * Print warning for admin users that critical CSS is empty
-			 */
-			if (current_user_can('administrator') || current_user_can('editor')) {
-				print '
-/*!
- * Above The Fold Optimization ' . $this->CTRL->get_version() . '
- * 
- * ------------------------------------
- *    WARNING: CRITICAL CSS IS EMPTY     
- * ------------------------------------
- * 
- * This message is displayed for admins only.
- *
- */
-';
-			} else {
-				print '
-/*!
- * Above The Fold Optimization ' . $this->CTRL->get_version() . ' // EMPTY
- */
-';
-			}
-
-		}
-
-		print '</style>';
+		print '<style type="text/css" rel="abtf" id="AbtfCSS">' . $inlineCSS . '</style>';
 
 		/**
 		 * Start async loading of CSS

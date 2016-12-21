@@ -49,7 +49,7 @@
 														<p class="description">A state of the art script loader for optimal mobile speed, inspired by <a href="https://addyosmani.com/basket.js/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">basket.js</a> (by a Google engineer), a script loading concept in use by Google. With fallback to little-loader for old browsers.</p>
 														<div class="info_yellow">
 															<p class="description" style="margin-top:0px;">
-																<strong>Advantages of the HTML5 script loader (an innovation by this plugin)</strong>
+																<strong>Advantages of the HTML5 script loader</strong>
 															</p>
 															<p class="description" style="margin-bottom:0px;">
 																<ul style="margin:0px;padding:0px;">
@@ -58,7 +58,7 @@
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> abide WordPress dependencies</li>
 																	<li style="padding:0px;margin:0px;">&nbsp;<span style="color: #666;">➤</span> faster script loading than browser cache, especially on mobile</li>
 																</ul>
-																<p style="margin-top:10px;">Saving javascript requests will result in a faster load speed for returning visitors from Google. Google will notice several factors such as an improved bounce rate and when you use Google Analytics, Google will also measure physical site speed.</p>
+																<p style="margin-top:10px;">Saving javascript requests will result in a faster load speed for returning visitors and therefor has several benefits for achieving a higher ranking in Google.</p>
 															</p>
 														</div>
 													</td>
