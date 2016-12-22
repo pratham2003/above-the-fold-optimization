@@ -21,7 +21,7 @@
 
 						<p><strong>This plugin is not intended for easy usage.</strong> Please seek expert help if you do not understand how to use this plugin. <a href="https://encrypted.google.com/search?hl=<?php print $lgcode;?>&amp;q=<?php print urlencode('wordpress pagespeed optimization service'); ?>" target="_blank">Search Google</a> for optimization experts or contact the author of this plugin: <a href="#" target="_blank">info@pagespeed.pro</a>.</p>
 
-						<p>This plugin is offered for free. Do not expect support. If you experience a problem or have an idea for better performance, we are thankful if you <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">report it</a> on the WordPress forums. Please do not expect free help to achieve a Google PageSpeed <span class="g100">100</span> score.</p>
+						<p>This plugin is offered for free. Do not expect support. If you experience a problem or have an idea for better performance, we are thankful if you <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">report it</a> on the WordPress forums. Please do not expect free help to achieve a Google PageSpeed 100 score.</p>
 
 						<h1 style="margin-bottom:10px;padding-bottom:0px;">Roadmap to achieve a Google PageSpeed <span class="g100">100</span> score</h1>
 						

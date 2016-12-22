@@ -188,16 +188,15 @@ jQuery(function() {
         var conditions = [];
         if (selected instanceof Array) {
             var keys = ['value','title','optgroup','class'];
-            var lx = keys.length;
+            var kl = keys.length;
             var l = selected.length;
             for (var i = 0; i < l; i++) {
                 if (selectize.options[selected[i]]) {
                     var opt = selectize.options[selected[i]];
                     var value = {};
-
-                    for (var ix = 0; ix < lx; ix++) {
-                        if (typeof opt[keys[ix]] !== 'undefined') {
-                            value[keys[ix]] = opt[keys[ix]];
+                    for (var k = 0; k < kl; k++) {
+                        if (typeof opt[keys[k]] !== 'undefined') {
+                            value[keys[k]] = opt[keys[k]];
                         }
                     }
                     conditions.push(value);
