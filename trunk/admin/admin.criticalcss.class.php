@@ -47,8 +47,22 @@ class Abovethefold_Admin_CriticalCSS {
 			// AJAX page search
 			$this->CTRL->loader->add_action( 'wp_ajax_abtf_condition_search', $this, 'ajax_condition_search' );
 
+			// Clear CSS condition cache
+			$this->CTRL->loader->add_action( 'save_post', $this, 'clear_conditioncache' );
+			$this->CTRL->loader->add_action( 'edit_category', $this, 'clear_conditioncache' );
+			$this->CTRL->loader->add_action( 'delete_category', $this, 'clear_conditioncache' );
+			$this->CTRL->loader->add_action( 'add_category', $this, 'clear_conditioncache' );
+			$this->CTRL->loader->add_action( 'edited_terms', $this, 'clear_conditioncache' );
+			$this->CTRL->loader->add_action( 'delete_term', $this, 'clear_conditioncache' );
 		}
 
+	}
+
+	/**
+	 * Clear CSS condition cache
+	 */
+	public function clear_conditioncache() {
+		delete_option('abtf-conditionoptions');
 	}
 
 	/**

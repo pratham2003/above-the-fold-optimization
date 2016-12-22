@@ -11,7 +11,7 @@ window.conditional_options = <?php print json_encode($conditional_options,true);
 </script>
 <li>
 
-	<h3 style="padding:0px;margin:0px;margin-top:1em;margin-bottom:10px;">Conditional Critical CSS</h3>
+	<h3 style="padding:0px;margin:0px;margin-top:1em;margin-bottom:10px;">Conditional Critical Path CSS</h3>
 
 	<p class="description" style="margin-bottom:0px;"><?php _e('Configure tailored critical path CSS for individual posts, pages, post types, categories or templates.', 'abovethefold'); ?></p>
 

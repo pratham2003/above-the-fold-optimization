@@ -49,7 +49,12 @@
 						</h3>
 						<div class="inside testcontent">
 
-							<p>The external resource proxy loads external resources such as scripts and stylesheets via a caching proxy. This feature enables to pass the <a href="https://developers.google.com/speed/docs/insights/LeverageBrowserCaching?hl=<?php print $lgcode;?>" target="_blank">Leverage browser caching</a> rule from Google PageSpeed Insights.</p>
+							<div style="float:right;z-index:9000;position:relative;"><img src="<?php print WPABTF_URI; ?>admin/images/browsercache-error.png" alt="Google Bot" width="400" title="Google Webmasters Monitor">
+							</div>
+
+							<p>The external resource proxy loads external resources such as scripts and stylesheets via a caching proxy.</p>
+
+							<p>This feature enables to pass the <a href="https://developers.google.com/speed/docs/insights/LeverageBrowserCaching?hl=<?php print $lgcode;?>" target="_blank">Leverage browser caching</a> rule from Google PageSpeed Insights.</p>
 
 							<table class="form-table">
 								

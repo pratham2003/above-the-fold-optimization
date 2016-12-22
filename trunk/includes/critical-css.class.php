@@ -3,7 +3,7 @@
 /**
  * Abovethefold critical css optimization functions and hooks.
  *
- * This class provides the functionality for optimization functions and hooks.
+ * This class provides the functionality for critical css  related functions and hooks.
  *
  * @since      2.7
  * @package    abovethefold
@@ -80,7 +80,7 @@ class Abovethefold_Critical_CSS {
 					}
 
 					// name
-					if (preg_match('|^\s*\*[^a-z0-9]+([^\n]+)|is',$output[1],$nameout)) {
+					if (preg_match('|^\s*\*[\s\*]+([^\n]+)|is',$output[1],$nameout)) {
 						$criticalcss_name = trim($nameout[1]);
 					} else {
 						$criticalcss_name = ucfirst(trim(preg_replace(array('|\.css$|Ui','|\-+|is'),array('',' '),$file)));
@@ -141,7 +141,6 @@ class Abovethefold_Critical_CSS {
 													continue 1;
 												}
 
-												//$data = explode(',',$split[1]);
 												foreach ($data as $dn => $datavalue) {
 													if (is_string($datavalue) && substr($datavalue,0,1) === '"') {
 														$data[$dn] = json_decode($datavalue);
@@ -251,7 +250,7 @@ class Abovethefold_Critical_CSS {
 	public function get_file_contents($file) {
 
 		// strip config header
-		$cssdata = trim(preg_replace('|^/\*(.*?)\*/|is','',trim((file_exists($file)) ? file_get_contents($file) : '')));
+		$cssdata = trim(preg_replace('|^\s*/\*(.*?)\*/|is','',trim((file_exists($file)) ? file_get_contents($file) : '')));
 		return $cssdata;
 	}
 
@@ -427,7 +426,7 @@ class Abovethefold_Critical_CSS {
 
 		// debug
 		$debug = (current_user_can('administrator') || current_user_can('editor')) ? true : false;
-		$debug_enabled = (isset($this->CTRL->options['debug']) && intval($this->CTRL->options['debug']) === 1) ? true : false;
+		$debug_enabled = ($debug && isset($this->CTRL->options['debug']) && intval($this->CTRL->options['debug']) === 1) ? true : false;
 
 		$criticalcss_files = $this->get_theme_criticalcss();
 		$criticalcss_dir = $this->CTRL->theme_path( 'critical-css' );
@@ -583,7 +582,7 @@ class Abovethefold_Critical_CSS {
 		}
 
 		$servedfiles = '';
-		if (!empty($preAppendFiles['prepend'])) {
+		if (isset($preAppendFiles['prepend']) && !empty($preAppendFiles['prepend'])) {
 			$primary_criticalcss['css'] = implode(' ',array_values($preAppendFiles['prepend'])) . ' ' . $primary_criticalcss['css'];
 			$files = array_keys($preAppendFiles['prepend']);
 			foreach ($files as $file) {
@@ -599,7 +598,7 @@ class Abovethefold_Critical_CSS {
 		}
 		$servedfiles .= ' * @primary ' . $primary_criticalcss['file'];
 
-		if (!empty($preAppendFiles['append'])) {
+		if (isset($preAppendFiles['append']) && !empty($preAppendFiles['append'])) {
 			$primary_criticalcss['css'] = $primary_criticalcss['css'] . ' ' . implode(' ',array_values($preAppendFiles['append']));
 			$files = array_keys($preAppendFiles['append']);
 			foreach ($files as $file) {
