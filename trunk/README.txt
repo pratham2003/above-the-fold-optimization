@@ -103,12 +103,14 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.1 =
+* Added: Google Font zip-file upload and extract in theme directory to place Google Fonts locally.
+
 = 2.7.0 =
 * Updated: Critical CSS file storage location moved to theme directory.
 * Added: file based critical CSS configuration to allow editing via FTP.
 * Added: Critical CSS filter function condition.
 * Added: append/prepend CSS file(s) to critical CSS.
-* Added: Google Font zip-file upload and extract in theme directory.
 * Added: enhanced Critical CSS debug comment.
 
 = 2.6.17 =
