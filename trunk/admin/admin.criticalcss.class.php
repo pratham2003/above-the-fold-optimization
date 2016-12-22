@@ -115,6 +115,20 @@ class Abovethefold_Admin_CriticalCSS {
 						'class' => 'pagetype'
 					);
 				break;
+				case "post":
+					$conditional_options[] = array(
+						'value' => 'is_single()',
+						'title' => 'Posts',
+						'optgroup' => 'pagetype',
+						'class' => 'pagetype'
+					);
+					$conditional_options[] = array(
+						'value' => 'is_singular():'.$pt,
+						'title' => 'Blog Posts',
+						'optgroup' => 'pagetype',
+						'class' => 'pagetype'
+					);
+				break;
 				default:
 					$conditional_options[] = array(
 						'value' => 'is_singular():'.$pt,

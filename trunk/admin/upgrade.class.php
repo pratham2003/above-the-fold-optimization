@@ -246,6 +246,10 @@ class Abovethefold_Upgrade {
 										case "attachment":
 											$config['conditions'][] = 'is_'.$pt.'()';
 										break;
+										case "post":
+											$config['conditions'][] = 'is_single()';
+											$config['conditions'][] = 'is_singular():' . $pt;
+										break;
 										default:
 											$config['conditions'][] = 'is_singular():' . $pt;
 										break;
