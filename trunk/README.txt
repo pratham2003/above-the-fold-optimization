@@ -1,7 +1,7 @@
 === Above The Fold Optimization ===
 Contributors: optimalisatie
 Donate link: https://pagespeed.pro/
-Tags: optimization, above the fold, critical css, css, performance, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, pagespeed, google, web font, webfont
+Tags: optimization, above the fold, pagespeed, css, performance, critical css, localization, javascript, minification, minify, minify css, minify stylesheet, optimize, speed, stylesheet, google, web font, webfont
 Requires at least: 3.0.1
 Tested up to: 4.7.0
 Stable tag: 4.4
