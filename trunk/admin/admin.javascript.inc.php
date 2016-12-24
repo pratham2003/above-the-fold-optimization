@@ -123,7 +123,7 @@
 													</th>
 													<td>
 														<label><input type="checkbox" name="abovethefold[jsdelivery_deps]" value="1"<?php if (isset($options['jsdelivery_deps']) && intval($options['jsdelivery_deps']) === 1) { print ' checked'; } ?> > Enabled</label>
-														<p class="description">When enabled, scripts will be loaded sequential abiding the WordPress dependency configuration from <a href="https://developer.wordpress.org/reference/functions/wp_enqueue_script/" target="_blank">wp_enqueue_script()</a>.</p>
+														<p class="description">When enabled, scripts will be loaded in sequential order abiding the WordPress dependency configuration from <a href="https://developer.wordpress.org/reference/functions/wp_enqueue_script/" target="_blank">wp_enqueue_script()</a>.</p>
 													</td>
 												</tr>
 												<th scope="row">
