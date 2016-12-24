@@ -57,7 +57,7 @@ class Abovethefold_Admin {
 	/**
 	 * Google Analytics UTM string for external links
 	 */
-	public $utm_string = 'utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Advanced%20Optimization';
+	public $utm_string = 'utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization';
 
 	/**
 	 * Initialize the class and set its properties

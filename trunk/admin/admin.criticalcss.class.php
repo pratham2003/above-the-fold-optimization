@@ -113,6 +113,12 @@ class Abovethefold_Admin_CriticalCSS {
 			'optgroup' => 'pagetype',
 			'class' => 'pagetype'
 		);
+		$conditional_options[] = array(
+			'value' => 'is_tag()',
+			'title' => 'Tags',
+			'optgroup' => 'pagetype',
+			'class' => 'pagetype'
+		);
 
 		$post_types = get_post_types();
 		foreach ($post_types as $pt) {
@@ -228,12 +234,20 @@ class Abovethefold_Admin_CriticalCSS {
 		$taxs = get_taxonomies();
 		if (!empty($taxs)) {
 			foreach($taxs as $tax) {
-				$conditional_options[] = array(
-					'value' => 'is_tax():' . $tax,
-					'title' => $tax,
-					'optgroup' => 'taxonomy',
-					'class' => 'post'
-				);
+				switch($tax) {
+					case "category":
+					case "post_tag":
+						// ignore
+					break;
+					default:
+						$conditional_options[] = array(
+							'value' => 'is_tax():' . $tax,
+							'title' => $tax,
+							'optgroup' => 'taxonomy',
+							'class' => 'post'
+						);
+					break;
+				}
 			}
 		}
 
@@ -358,8 +372,8 @@ class Abovethefold_Admin_CriticalCSS {
 											'value' => 'is_tax():' . $taxonomy . ':' . $term->slug,
 											'title' => 'Term: ' . $taxonomy . '/' . $term->name,
 											'titlelong' => 'Term: ' . $term->term_id.'. ' . str_replace(home_url(),'',get_category_link( $term->term_id )) . ' - ' . $term->name,
-											'optgroup' => 'post',
-											'class' => 'post'
+											'optgroup' => 'category',
+											'class' => 'cat'
 										);
 									break;
 									case "post_tag":
@@ -367,8 +381,8 @@ class Abovethefold_Admin_CriticalCSS {
 											'value' => 'is_tag():' . $term->slug,
 											'title' => 'Tag: ' . $term->name,
 											'titlelong' => 'Tag: ' . $term->term_id.'. ' . str_replace(home_url(),'',get_category_link( $term->term_id )) . ' - ' . $term->name,
-											'optgroup' => 'post',
-											'class' => 'post'
+											'optgroup' => 'category',
+											'class' => 'cat'
 										);
 									break;
 									default:
@@ -376,8 +390,8 @@ class Abovethefold_Admin_CriticalCSS {
 											'value' => 'is_tax():' . $taxonomy . ':' . $term->slug,
 											'title' => 'Term: ' . $taxonomy . '/' . $term->name,
 											'titlelong' => 'Term: ' . $term->term_id.'. ' . str_replace(home_url(),'',get_category_link( $term->term_id )) . ' - ' . $term->name,
-											'optgroup' => 'post',
-											'class' => 'post'
+											'optgroup' => 'category',
+											'class' => 'cat'
 										);
 									break;
 								}

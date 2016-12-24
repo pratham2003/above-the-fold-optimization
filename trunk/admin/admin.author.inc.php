@@ -2,7 +2,7 @@
 	<div class="authorbox">
 		<div class="inside" style="width:auto;margin:0px;float:left;position:relative;margin-right:2em;">
 			<p style="z-index:999;">Developed by <strong><a href="https://pagespeed.pro/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">PageSpeed.pro</a></strong>
-			<br />Contribute via <a href="https://github.com/optimalisatie/above-the-fold-optimization" target="_blank">Github</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">Report a bug</a> &dash; <a href="https://wordpress.org/support/view/plugin-reviews/above-the-fold-optimization?rate=5" target="_blank">Review this plugin</a></p>
+			<br />Contribute via <a href="https://github.com/optimalisatie/above-the-fold-optimization" target="_blank">Github</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">Report a bug</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization/reviews/?rate=5#new-post" target="_blank">Review this plugin</a></p>
 		</div>
 
 		<div class="inside" style="margin:0px;float:left;font-style:italic;">

@@ -15,7 +15,7 @@
 						</h3>
 						<div class="inside testcontent">
 
-						<p>More information about javascript render optimization can be found in <a href="https://www.igvita.com/2014/05/20/script-injected-async-scripts-considered-harmful/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">this blog</a> by <a href="https://www.igvita.com/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">Ilya Grigorik</a>, web performance engineer at Google and author of the O'Reilly book <a href="https://www.amazon.com/High-Performance-Browser-Networking-performance/dp/1449344763/" target="_blank">High Performance Browser Networking</a> (<a href="https://hpbn.co/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">free online</a>).</p>
+						<div class="info_seagreen" style="margin-bottom:0px;"><strong>Tip:</strong> More information about javascript optimization can be found in <a href="https://www.igvita.com/?<?php print $utmstring; ?>" target="_blank">this blog</a> by Ilya Grigorik, web performance engineer at Google and author of the O'Reilly book <a href="https://www.amazon.com/High-Performance-Browser-Networking-performance/dp/1449344763/?<?php print $utmstring; ?>" target="_blank">High Performance Browser Networking</a> (<a href="https://hpbn.co/?<?php print $utmstring; ?>" target="_blank">free online</a>).</div>
 
 
 						<table class="form-table">
