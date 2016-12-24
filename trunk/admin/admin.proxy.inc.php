@@ -118,7 +118,13 @@
 										<h5 class="h">&nbsp;Proxy Preload List</h5>
 										<textarea style="width: 100%;height:50px;font-size:11px;" name="abovethefold[css_proxy_preload]"><?php if ($cssPreload !== '') { echo $cssPreload; } ?></textarea>
 										<p class="description">Enter the exact url or JSON config object of external stylesheets to preload for "script injected" async stylesheet capture, e.g. <code>http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css</code>. This setting will enable the proxy to load the cache url instead of the WordPress PHP proxy url. One url or JSON object per line.</p>
-										
+										</fieldset>
+									</td>
+								</tr>
+								
+								<tr valign="top">
+									<th scope="row">&nbsp;</th>
+									<td style="padding-top:0px;">
 										<a name="jsoncnf">&nbsp;</a>
 										<fieldset style="border:solid 1px #efefef;padding:10px;margin:0px;margin-top:7px;background:#f1f1f1;">
 											<h4 style="margin:0px;padding:0px;margin-bottom:5px;">JSON Proxy Config Object</h4>
@@ -129,7 +135,6 @@
 										</fieldset>
 									</td>
 								</tr>
-								
 								<tr valign="top">
 									<th scope="row">Proxy CDN</th>
 									<td>
