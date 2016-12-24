@@ -16,7 +16,7 @@
 
 						<br />
 						<div style="text-align:center;">
-							<h1>Limited Offer: Life Time Acess To <strong>New Optimization Plugin</strong></h1>
+							<h1>Limited Time Offer: Life Time Acess To <strong>New Optimization Plugin</strong></h1>
 							<p style="font-size:18px;">Easy to use (plug and play) and automated Google PageSpeed 100 score. [<a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();">read more</a>]</p>
 						</div>
 
