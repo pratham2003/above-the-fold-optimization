@@ -103,6 +103,9 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.2 =
+* Updated: minor improvements.
+
 = 2.7.1 =
 * Added: Google Webfont zip-file upload and extract.
 
