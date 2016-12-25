@@ -58,7 +58,7 @@
 								<p>The new plugin will offer the following unique features:</p>
 
 								<ul>
-									<li>Setup in just 10 minutes and up to 10x better speed than other plugins (verifyable by performance engineers).</li>
+									<li>Setup in just 10 minutes and up to 10x better speed than other plugins (verifiable by performance engineers).</li>
 									<li><strong>Automated Critical Path CSS creation</strong> to create and maintain professional quality critical CSS for unlimited pages.</li>
 									<li>Semi-automated Google PageSpeed optimization: a step by step guide that enables to semi-automatically achieve a Google PageSpeed <span class="g100">100</span> score, often within just 10 minutes for users with no technical knowledge.</li>
 									<li>Professional javascript minification and optimization. Most existing (premium) WordPress plugins offer minification at most, the new plugin will offer true Javascript optimization using professional software such as <a href="https://developers.google.com/closure/compiler/?hl=<?php print $lgcode;?>" target="_blank">Google Closure Compiler</a> that optimizes javascript for speed.</li>
