@@ -71,7 +71,7 @@
 									<li>Focus on website performance in relation to SEO (results in Google).</li>
 								</ul>
 
-								<p>And much more website performance innovations, some of which will amaze website performance optimization specialists such as for example <strong>Fetch Stream API based javascript loading</strong> (1 request for 'per file' based javascript loading with localStorage cache to achieve the best javascript speed possible in all situations).</p>
+								<p>And much more website performance innovations, some of which will amaze website performance optimization specialists such as for example <strong>Fetch Stream API based javascript loading</strong> (1 request for 'per file' based javascript loading with localStorage cache to achieve the best javascript speed possible in all situations while abiding WordPress dependencies).</p>
 
 								<p>The new plugin is based on an <strong>Optimization API</strong> (usable via Node.js, Amazon Lambda and Google Cloud Functions) that will be provided at a monthly subscription fee.</p> 
 
