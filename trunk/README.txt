@@ -103,6 +103,9 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.3 =
+* Bugfix: notice error with WP_DEBUG enabled. (@samkatakouzinos)
+
 = 2.7.2 =
 * Updated: minor improvements.
 
