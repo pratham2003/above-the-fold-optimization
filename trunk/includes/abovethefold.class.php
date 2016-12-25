@@ -277,7 +277,7 @@ class Abovethefold {
         /**
          * Register or login page
          */
-        if (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
+        if (isset($GLOBALS['pagenow']) && in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
         	return false;
         }
 
