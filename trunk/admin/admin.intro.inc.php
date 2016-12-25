@@ -79,11 +79,11 @@
 
 								<p>The purchase will include installation support. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
 
-								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and premium installation support is provided for free (an additional saving of hundreds of dollars).</p>
+								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and premium installation is provided for free (an additional saving of hundreds of dollars).</p>
 
 								<p>There will be no obligations. You will be free to order a refund (with us) in 6 months if the plugin does not deliver on your expectations.</p>
 
-								<p>If you are interested in our limited time offer, please send an amount of 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old) and we will provide you with life time access and premium installation for 1 website as soon as the new optimization plugin is ready!</p>
+								<p>If you are interested in our limited time offer, please send an amount of 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old) and we will provide you with life time access and premium installation for 1 website as soon as the new optimization plugin is ready.</p>
 								<h4 style="font-size:22px;line-height:26px;">Send Money<br /><a href="https://www.paypal.me/pagespeed/100usd" target="_blank">https://www.paypal.me/pagespeed/100usd</a></h4>
 
 								<div style="padding-left:10px;padding-bottom:1em;">
