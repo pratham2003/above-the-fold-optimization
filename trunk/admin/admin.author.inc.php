@@ -13,3 +13,44 @@
 		</div>
 	</div>
 </div>
+
+<?php
+
+	if (!isset($this->CTRL->options['update_count']) || intval($this->CTRL->options['update_count']) > 0) {
+
+		// get current critical css config
+		$criticalcss_files = $this->CTRL->criticalcss->get_theme_criticalcss();
+
+		/**
+		 * Test if critical CSS has been configured
+		 */
+		$criticalcss_configured = false;
+		$css = (file_exists($criticalcss_files['global.css']['file'])) ? $this->CTRL->criticalcss->get_file_contents($criticalcss_files['global.css']['file']) : '';
+		if ($css === '') {
+			// empty, try conditional critical CSS
+			foreach ($criticalcss_files as $file => $config) {
+				if ($file === 'global.css') { continue 1; }
+				$css = (file_exists($criticalcss_files[$file]['file'])) ? $this->CTRL->criticalcss->get_file_contents($criticalcss_files[$file]['file']) : '';
+				if ($css !== '') {
+					$criticalcss_configured = true;
+					break;
+				}
+			}
+		} else {
+			$criticalcss_configured = true;
+		}
+		if (!$criticalcss_configured) {
+			print '<div class="error">
+		<p style="font-size:16px;">
+			'.__('<strong>Warning:</strong> <a href="' . add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'criticalcss' ), admin_url( 'admin.php' ) ) . '">Critical Path CSS</a> is empty.
+		</p>
+		<p style="font-size:16px;">
+			Without Critical CSS a <a href="https://en.wikipedia.org/wiki/Flash_of_unstyled_content" target="_blank">Flash of Unstyled Content</a> is caused if CSS optimization is enabled and it will trigger the two Google PageSpeed rules <a href="https://developers.google.com/speed/docs/insights/OptimizeCSSDelivery?hl=<?php print $lgcode;?" target="_blank"><em>Eliminate render-blocking JavaScript and CSS in above-the-fold content</em></a> and <a href="https://developers.google.com/speed/docs/insights/PrioritizeVisibleContent?hl=<?php print $lgcode;?" target="_blank"><em>Prioritize visible content</em></a>, reducing the PageSpeed score significantly.', 'abovethefold').'
+			</p>
+		<p>
+			<a class="button" href="https://developers.google.com/speed/pagespeed/insights/?url=' . urlencode(home_url()) . '&amp;hl=' . $lgcode . '" target="_blank">Test Google PageSpeed Score</a>
+		</p>
+	</div>';
+		}
+
+	}
