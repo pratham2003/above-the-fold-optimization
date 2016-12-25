@@ -79,7 +79,7 @@
 
 								<p>The purchase will include premium installation. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
 
-								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and premium installation is provided for free (an additional saving of hundreds of dollars).</p>
+								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and <strong>premium installation is provided for free</strong> (an additional saving of hundreds of dollars).</p>
 
 								<p>You will be able to request a refund (with us) for any reason in a period of 6 months if the plugin does not deliver on your expectations.</p>
 
