@@ -77,7 +77,7 @@
 
 								<p>As a limited time offer to fund the development of the new plugin we offer users of the Above The Fold Optimization plugin the opportunity to purchase life time access to the new plugin and the Optimization API for a onetime fee of 100 USD via PayPal (valid for 1 website). The new optimization plugin will be available by March 2017. PayPal offers 6 months buyers protection so you will be able to order a refund if the plugin is not ready within 3 months or if it does not deliver on your expectations.</p>
 
-								<p>The purchase will include installation support. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
+								<p>The purchase will include premium installation. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
 
 								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and premium installation is provided for free (an additional saving of hundreds of dollars).</p>
 
