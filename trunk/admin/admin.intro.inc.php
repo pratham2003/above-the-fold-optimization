@@ -17,7 +17,8 @@
 						<br />
 						<div style="text-align:center;">
 							<h1>Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h1>
-							<p style="font-size:18px;line-height:22px;margin-top:10px;">Easy to use (plug and play) and automated Google PageSpeed <span class="g100">100</span> score. [<a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();">read more</a>]</p>
+							<p style="font-size:18px;line-height:22px;margin-top:10px;">Easy to use (plug and play) and automated Google PageSpeed <span class="g100">100</span> score. </p>
+							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();" class="button button-primary" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;">Click here to read more</a></p>
 						</div>
 
 						<style>
