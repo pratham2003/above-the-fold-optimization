@@ -103,6 +103,9 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.5 =
+* Bugfix: Full CSS export is missing quotes in url translation.
+
 = 2.7.4 =
 * Added: warning in admin panel when Critical Path CSS is empty.
 
