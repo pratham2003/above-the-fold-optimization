@@ -28,7 +28,7 @@ if (document.location.hash === '#offer') {
 						<div style="text-align:center;">
 							<h1 id="limitedofferhead">Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h1>
 							<p style="font-size:18px;line-height:22px;margin-top:0px;">Easy to use (plug and play) and automated Google PageSpeed <span class="g100">100</span> score. </p>
-							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="showOffer();" class="button button-primary" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;">Read More</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="padding-top:5px;font-size:18px;line-height:20px;height:54px;font-weight:bold;display:none;" id="applybtn">Apply For Offer<br /><span style="font-size:12px;line-height:14px;font-weight:normal;">and get upwards of <strong>$600</strong> in value</span></a></p>
+							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="showOffer();" class="button button-primary" style="font-size:16px;line-height:32px;height:34px;">Read More</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="padding-top:5px;font-size:18px;line-height:20px;height:54px;font-weight:bold;display:none;" id="applybtn">Apply For Offer<br /><span style="font-size:12px;line-height:14px;font-weight:normal;">and get upwards of <strong>$600</strong> in value</span></a></p>
 						</div>
 
 						<fieldset class="limited" style="display:none;" id="limitedoffer">
