@@ -9,7 +9,7 @@
 	if (!$welcome_checked) {
 ?>
 <div id="welcome-panel" class="welcome-panel">
-	<a class="welcome-panel-close" href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'limited-offer' => 1 ), admin_url( 'admin.php' ) ); ?>" aria-label="Dismiss the welcome panel">Dismiss</a>
+	<a class="welcome-panel-close" href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'settings', 'limited-offer' => 1 ), admin_url( 'admin.php' ) ); ?>" aria-label="Dismiss the welcome panel">Dismiss</a>
 	<div class="welcome-panel-content">
 		<h2>Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h2>
 		<p class="about-description">Easy to use (plug and play), automated Google PageSpeed <span class="g100">100</span> score and professional quality optimization (the best performance).</p>
