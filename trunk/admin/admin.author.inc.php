@@ -16,7 +16,7 @@
 
 <?php
 
-	if (!isset($this->CTRL->options['update_count']) || intval($this->CTRL->options['update_count']) > 0) {
+	if (isset($this->CTRL->options['update_count']) && intval($this->CTRL->options['update_count']) > 0) {
 
 		// get current critical css config
 		$criticalcss_files = $this->CTRL->criticalcss->get_theme_criticalcss();
