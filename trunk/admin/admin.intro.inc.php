@@ -55,7 +55,7 @@
 
 								<p>You will be able to request a refund for any reason in a period of 6 months if the plugin does not deliver on your expectations.</p>
 
-								<p>The offer will be available until sufficient funding has been reached. The value of the offer is upwards of 600 USD. Premium installation for a Google PageSpeed <span class="g100">100</span> score is costly, other service agencies sometimes charge more than 1000 USD for it.</p>
+								<p>The offer will be available until sufficient funding has been reached. The value of the offer is upwards of 600 USD. Premium installation for a Google PageSpeed <span class="g100">100</span> score is costly. Other service agencies sometimes charge more than 1000 USD for it.</p>
 
 								<p>To apply for our limited time offer please send 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old) and we will provide you with life time access and premium installation for 1 website as soon as the new optimization plugin is ready.</p>
 								<h4 style="font-size:22px;line-height:26px;margin-bottom:0px;">Apply For Offer<br /><a href="https://www.paypal.me/pagespeed/100usd" target="_blank">https://www.paypal.me/pagespeed/100usd</a></h4>
