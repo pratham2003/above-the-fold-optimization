@@ -1,11 +1,11 @@
 <script>
-if (document.location.hash === '#offer') {
+function showOffer() {
+	jQuery('#limitedoffer').toggle();
+	jQuery('#applybtn').toggle();
+	jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);
+};
 
-	function showOffer() {
-		jQuery('#limitedoffer').toggle();
-		jQuery('#applybtn').toggle();
-		jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);
-	};
+if (document.location.hash === '#offer') {
 
 	jQuery(function() {
 		showOffer();
