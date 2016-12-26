@@ -21,35 +21,6 @@
 							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();jQuery('#applybtn').toggle(); jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);" class="button button-primary" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;">Click here to read more</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;display:none;" id="applybtn">Apply For Offer</a></p>
 						</div>
 
-						<style>
-						fieldset.limited {
-							border:solid 4px #079c2d;
-							padding:0px;
-							background:white;
-						}
-						fieldset.limited legend {
-							font-size:22px;
-							padding-left:10px;
-							padding-right:10px;
-							margin-left:20px;
-							margin-right:20px;
-						}
-						fieldset.limited div.c {
-							padding:10px;
-							padding-top:0px;
-							font-size:16px;
-						}
-						fieldset.limited p, fieldset.limited ul li { 
-							font-size:16px;
-							line-height:20px;
-						}
-						fieldset.limited ul {
-							padding-left:2em;
-							list-style:square;
-							font-size:14px;
-						}
-						</style>
-
 						<fieldset class="limited" style="display:none;" id="limitedoffer">
 							<legend>Advanced WordPress Optimization</legend>
 							<div class="c">
