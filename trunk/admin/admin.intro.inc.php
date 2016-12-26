@@ -49,7 +49,7 @@ if (document.location.hash === '#offer') {
 									<li>Professional image optimization. Most image optimization plugins depend on PHP based solutions, the new plugin will enable the use of the latest professional image optimization software including <a href="https://developers.google.com/speed/webp/?hl=<?php print $lgcode;?>" target="_blank">Google WebP image optimization</a> (a unique feature that is beneficial for SEO).</li>
 									<li>Per page CSS sprite creation. A unique website performance optimization innovation that enables per page CSS sprite creation that will load all images of a page in 1 optimized request. On pages with 100+ images such as webshop index pages it will physically improve the speed 10x or more, even for professional optimized websites. Using CSS sprites an instant load time feeling can be provided for complex webshop pages. It will be stable and usable for high traffic webshops.</li>
 									<li>Full page cache solutions that offer the best speed possible.</li>
-									<li>Full page CDN innovation that enables the best international website speed and that enables to achieve top positions in Google in multiple countries (we have evidence that it will work well to get international premium rankings with a single website).</li>
+									<li>Full page CDN innovation that enables fast international website speed and that enables to achieve top positions in Google in multiple countries (we have evidence that it will work well to get international premium rankings with a single website).</li>
 									<li>Focus on website performance in relation to SEO (results in Google).</li>
 								</ul>
 
