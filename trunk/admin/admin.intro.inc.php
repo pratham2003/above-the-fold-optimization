@@ -18,7 +18,7 @@
 						<div style="text-align:center;">
 							<h1 id="limitedofferhead">Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h1>
 							<p style="font-size:18px;line-height:22px;margin-top:10px;">Easy to use (plug and play) and automated Google PageSpeed <span class="g100">100</span> score. </p>
-							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();jQuery('#applybtn').toggle(); jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);" class="button button-primary" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;">Read More</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;display:none;" id="applybtn">Apply For Offer</a></p>
+							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" onclick="jQuery('#limitedoffer').toggle();jQuery('#applybtn').toggle(); jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);" class="button button-primary" style="font-size:18px;line-height:32px;height:34px;font-weight:bold;">Read More</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="padding-top:5px;font-size:18px;line-height:20px;height:54px;font-weight:bold;display:none;" id="applybtn">Apply For Offer<br /><span style="font-size:12px;line-height:14px;font-weight:normal;">and get upwards of <strong>$600</strong> in value</span></a></p>
 						</div>
 
 						<fieldset class="limited" style="display:none;" id="limitedoffer">
@@ -47,15 +47,17 @@
 
 								<p>The new plugin is based on an <strong>Optimization API</strong> (usable via Node.js, Amazon Lambda and Google Cloud Functions) that will be provided at a monthly subscription fee.</p> 
 
-								<p>As a limited time offer to fund the development of the new plugin we offer users of the Above The Fold Optimization plugin the opportunity to purchase life time access to the new plugin and the Optimization API for a onetime fee of 100 USD via PayPal (valid for 1 website). The new optimization plugin will be available by March 2017. PayPal offers 6 months buyers protection so you will be able to order a refund if the plugin is not ready within 3 months or if it does not deliver on your expectations.</p>
+								<p>As a limited time offer to fund the development of the new plugin we offer users of the Above The Fold Optimization plugin the opportunity to purchase life time access to the new plugin and the Optimization API + premium installation for a onetime fee of 100 USD via PayPal (valid for 1 website). The new optimization plugin will be available by March 2017. PayPal offers 6 months buyers protection so you will be able to order a refund if the plugin is not ready within 3 months or if it does not deliver on your expectations.</p>
 
 								<p>The purchase will include premium installation. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
 
 								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and <strong>premium installation is provided for free</strong> (an additional saving of hundreds of dollars).</p>
 
-								<p>You will be able to request a refund (with us) for any reason in a period of 6 months if the plugin does not deliver on your expectations.</p>
+								<p>You will be able to request a refund for any reason in a period of 6 months if the plugin does not deliver on your expectations.</p>
 
-								<p>If you are interested in our limited time offer, please send an amount of 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old) and we will provide you with life time access and premium installation for 1 website as soon as the new optimization plugin is ready.</p>
+								<p>The offer will be available until sufficient funding has been reached. The value of the offer is upwards of 600 USD. Premium installation for a Google PageSpeed <span class="g100">100</span> score is costly, other service agencies sometimes charge more than 1000 USD for it.</p>
+
+								<p>To apply for our limited time offer please send 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old) and we will provide you with life time access and premium installation for 1 website as soon as the new optimization plugin is ready.</p>
 								<h4 style="font-size:22px;line-height:26px;margin-bottom:0px;">Apply For Offer<br /><a href="https://www.paypal.me/pagespeed/100usd" target="_blank">https://www.paypal.me/pagespeed/100usd</a></h4>
 								<p class="description" style="margin-top:10px;">You will receive an invoice. You will be contacted by email once the optimization plugin is ready.</p>
 
