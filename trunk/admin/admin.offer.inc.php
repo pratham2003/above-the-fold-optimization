@@ -15,7 +15,7 @@
 		<p class="about-description" style="margin-top:4px;">Easy to use (plug and play), automated Google PageSpeed <span class="g100">100</span> score and professional quality optimization (the best performance).</p>
 		<div class="welcome-panel-column-container">
 			<div class="welcome-panel-column" style="margin-bottom:1em;">
-					<a href="<?php echo add_query_arg( array( 'page' => 'abovethefold' ), admin_url( 'admin.php' ) ); ?>#offer" class="button button-primary button-hero load-customize hide-if-no-customize">Read More</a>
+					<a href="<?php echo add_query_arg( array( 'page' => 'abovethefold' ), admin_url( 'admin.php' ) ); ?>#offer" onclick="if (typeof showOffer === 'function') { showOffer(); }" class="button button-primary button-hero load-customize hide-if-no-customize">Read More</a>
 			</div>
 		</div>
 	</div>
