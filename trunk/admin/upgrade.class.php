@@ -342,7 +342,7 @@ class Abovethefold_Upgrade {
 				'genurls',
 				'localizejs_enabled',
 				'conditionalcss_enabled',
-				//'conditional_css' 
+				'conditional_css' 
 			);
 			foreach ($old_options as $opt) {
 				if (isset($options[$opt])) {
@@ -354,6 +354,9 @@ class Abovethefold_Upgrade {
 			if ($update_options) {
 				update_option('abovethefold', $options, true);
 			}
+
+			// restore limited offer
+			update_user_meta( get_current_user_id(), 'abtf_show_offer', 0 );
 
 			/**
 			 * Clear full page cache
