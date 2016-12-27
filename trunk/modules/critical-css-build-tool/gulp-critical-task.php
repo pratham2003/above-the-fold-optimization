@@ -138,7 +138,7 @@ module.exports = function (gulp, plugins, critical) {
 		        inline: false, // generate
 		        base: taskpath ,
 		        src: 'page.html',
-		        dest: taskpath + 'output/critical.css',
+		        dest: 'output/critical.css',
 		        minify: false,
 				css: <?php print str_replace('"TASKPATH','taskpath + "',$cssfilejson); ?>,
 				extract: false,
