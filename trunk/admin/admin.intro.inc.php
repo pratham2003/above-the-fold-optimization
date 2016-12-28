@@ -71,6 +71,11 @@ if (document.location.hash === '#offer') {
 								<h4 style="font-size:22px;line-height:26px;margin-bottom:0px;">Apply For Offer<br /><a href="https://www.paypal.me/pagespeed/100usd" target="_blank">https://www.paypal.me/pagespeed/100usd</a></h4>
 								<p class="description" style="margin-top:10px;">You will receive an invoice. You will be contacted by email once the optimization plugin is ready.</p>
 
+								<br />
+								<h1 style="font-weight:bold;font-size:32px;line-height:34px;">Thank you for supporting a new WordPress Optimization plugin!</h1>
+								<h1 style="font-size:26px;line-height:28px;">The new plugin will make professional level optimization available for WordPress websites!</h1>
+
+								<br />
 								<div style="padding-left:10px;padding-bottom:1em;">
 									<h4 style="margin-bottom:0px;">Optimalisatie BV (Optimization Co.)</h4>
 									<address>Jansdam 2a<br />
