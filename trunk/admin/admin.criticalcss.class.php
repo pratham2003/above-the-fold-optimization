@@ -54,6 +54,10 @@ class Abovethefold_Admin_CriticalCSS {
 			$this->CTRL->loader->add_action( 'add_category', $this, 'clear_conditioncache' );
 			$this->CTRL->loader->add_action( 'edited_terms', $this, 'clear_conditioncache' );
 			$this->CTRL->loader->add_action( 'delete_term', $this, 'clear_conditioncache' );
+
+			// init global.css on theme switch
+			$this->CTRL->loader->add_action('after_switch_theme', $this, 'switch_theme');
+
 		}
 
 	}
@@ -63,6 +67,43 @@ class Abovethefold_Admin_CriticalCSS {
 	 */
 	public function clear_conditioncache() {
 		delete_option('abtf-conditionoptions');
+	}
+
+	/**
+	 * Switch theme
+	 */
+	public function switch_theme() {
+
+		// get theme critical CSS
+		$criticalcss_files = $this->CTRL->criticalcss->get_theme_criticalcss();
+
+		$cssfile = 'global.css';
+
+		// add empty global.css
+		if (!isset($criticalcss_files[$cssfile])) {
+
+			$criticalcss_dir = $this->CTRL->theme_path( 'critical-css' );
+
+			$config = (isset($criticalcss_files[$cssfile]) && is_array($criticalcss_files[$cssfile])) ? $criticalcss_files[$cssfile] : array();
+
+			// name
+			if (!isset($config['name'])) {
+				$config['name'] = 'Global';
+			}
+
+			if (file_exists($criticalcss_dir . $cssfile) && !is_writable($criticalcss_dir . $cssfile)) {
+				$this->CTRL->admin->set_notice('<p style="font-size:18px;">Failed to write to Critical CSS storage file. Please check the write permissions for the following file:</p><p style="font-size:22px;color:red;"><strong>'.str_replace(trailingslashit(ABSPATH),'/',$criticalcss_dir . $cssfile).'</strong></p>', 'ERROR');
+			} else {
+
+				// save file with config header
+				$error = $this->CTRL->criticalcss->save_file_contents($cssfile, $config, '/* automatically added on theme switch */');
+				if ($error && is_array($error)) {
+					foreach ($error as $err) {
+						$this->CTRL->admin->set_notice('<p style="font-size:18px;">'.$err['message'].'</p>', 'ERROR');
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -558,7 +599,7 @@ class Abovethefold_Admin_CriticalCSS {
 			/**
 			 * Store global critical CSS
 			 */
-			$config = (is_array($criticalcss_files[$cssfile])) ? $criticalcss_files[$cssfile] : array();
+			$config = (isset($criticalcss_files[$cssfile]) && is_array($criticalcss_files[$cssfile])) ? $criticalcss_files[$cssfile] : array();
 
 			// name
 			if (!isset($config['name'])) {
@@ -566,7 +607,7 @@ class Abovethefold_Admin_CriticalCSS {
 			}
 
 			if (file_exists($criticalcss_dir . $cssfile) && !is_writable($criticalcss_dir . $cssfile)) {
-				$this->CTRL->admin->set_notice('<p style="font-size:18px;">Failed to write to Critical CSS storage file. Please check the write permissions for the following file:</p><p style="font-size:22px;color:red;"><strong>'.str_replace(trailingslashit(ABSPATH),'/',$cssfile).'</strong></p>', 'ERROR');
+				$this->CTRL->admin->set_notice('<p style="font-size:18px;">Failed to write to Critical CSS storage file. Please check the write permissions for the following file:</p><p style="font-size:22px;color:red;"><strong>'.str_replace(trailingslashit(ABSPATH),'/',$criticalcss_dir . $cssfile).'</strong></p>', 'ERROR');
 			} else {
 
 				// save file with config header
@@ -579,7 +620,7 @@ class Abovethefold_Admin_CriticalCSS {
 
 				// failed to store Critical CSS
 				if (!file_exists($criticalcss_dir . $cssfile) || !is_writable($criticalcss_dir . $cssfile)) {
-					$this->CTRL->admin->set_notice('<p style="font-size:18px;">Failed to write to Critical CSS storage file. Please check the write permissions for the following file:</p><p style="font-size:22px;color:red;"><strong>'.str_replace(trailingslashit(ABSPATH),'/',$cssfile).'</strong></p>', 'ERROR');
+					$this->CTRL->admin->set_notice('<p style="font-size:18px;">Failed to write to Critical CSS storage file. Please check the write permissions for the following file:</p><p style="font-size:22px;color:red;"><strong>'.str_replace(trailingslashit(ABSPATH),'/',$criticalcss_dir . $cssfile).'</strong></p>', 'ERROR');
 				}
 
 			}

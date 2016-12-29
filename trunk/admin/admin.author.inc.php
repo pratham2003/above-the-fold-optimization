@@ -8,12 +8,11 @@
 		<div class="inside" style="margin:0px;float:left;font-style:italic;">
 			<img src="https://optimalisatie.nl/img/websockify-rocket-50.png" title="Websockify" style="float:left;margin-right:5px;margin-top:8px;" width="50" align="absmiddle" />
 			<p>PageSpeed.pro has developed a plugin that is able to provide instant (&lt;1ms) page load times, up to 99% HTML data transfer saving and real time HTML (live content). 
-			<a href="http://websockify.it/" class="ws-info" target="_blank">Information</a> / <a href="https://websockify.io/" class="ws-info" target="_blank">Demo (WooCommerce)</a>
+			<a href="https://pagespeed.pro/innovation/instant/" class="ws-info" target="_blank">Information</a> / <a href="https://www.fastestwebsite.co/" class="ws-info" target="_blank">Demo (WooCommerce)</a>
 			<span id="livehtml" style="display:none;"></span></p>
 		</div>
 	</div>
 </div>
-
 <?php
 
 	if (isset($this->CTRL->options['update_count']) && intval($this->CTRL->options['update_count']) > 0) {
@@ -25,7 +24,7 @@
 		 * Test if critical CSS has been configured
 		 */
 		$criticalcss_configured = false;
-		$css = (file_exists($criticalcss_files['global.css']['file'])) ? $this->CTRL->criticalcss->get_file_contents($criticalcss_files['global.css']['file']) : '';
+		$css = (isset($criticalcss_files['global.css'])) ? $this->CTRL->criticalcss->get_file_contents($criticalcss_files['global.css']['file']) : '';
 		if ($css === '') {
 			// empty, try conditional critical CSS
 			foreach ($criticalcss_files as $file => $config) {

@@ -249,8 +249,12 @@ class Abovethefold_Critical_CSS {
 	 */
 	public function get_file_contents($file) {
 
+		if (!file_exists($file)) {
+			return '';
+		}
+
 		// strip config header
-		$cssdata = trim(preg_replace('|^\s*/\*(.*?)\*/|is','',trim((file_exists($file)) ? file_get_contents($file) : '')));
+		$cssdata = trim(preg_replace('|^\s*/\*(.*?)\*/|is','',trim(file_get_contents($file))));
 		return $cssdata;
 	}
 
@@ -575,7 +579,7 @@ class Abovethefold_Critical_CSS {
 		// no matching primary critical css, use global.css
 		if (!$primary_criticalcss) {
 			$primary_criticalcss = $primary_criticalcss = array(
-				'css' => $this->get_file_contents($criticalcss_files['global.css']['file']),
+				'css' => (isset($criticalcss_files['global.css']) ? $this->get_file_contents($criticalcss_files['global.css']['file']) : ''),
 				'file' => 'global.css',
 				'match' => false
 			);

@@ -11,11 +11,11 @@
 <div id="welcome-panel" class="welcome-panel">
 	<a class="welcome-panel-close" href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'settings', 'limited-offer' => 1 ), admin_url( 'admin.php' ) ); ?>" aria-label="Dismiss the welcome panel">Dismiss</a>
 	<div class="welcome-panel-content">
-		<h2>Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h2>
+		<h2>Special Offer: Early Access To <strong>New Optimization Plugin</strong></h2>
 		<p class="about-description" style="margin-top:4px;">Easy to use (plug and play), automated Google PageSpeed <span class="g100">100</span> score and lots of new professional optimization features.</p>
 		<div class="welcome-panel-column-container">
 			<div class="welcome-panel-column" style="margin-bottom:1em;">
-					<a href="<?php echo add_query_arg( array( 'page' => 'abovethefold' ), admin_url( 'admin.php' ) ); ?>#offer" onclick="if (typeof showOffer === 'function') { showOffer(); }" class="button button-primary button-hero load-customize hide-if-no-customize">Read More</a>
+					<a href="https://pagespeed.pro/innovation/advanced-wordpress-optimization/" target="_blank" class="button button-primary button-hero load-customize hide-if-no-customize">Read More</a>
 			</div>
 		</div>
 	</div>

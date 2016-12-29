@@ -103,6 +103,10 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.6 =
+* Bugfix: notice error on theme switch. (@samkatakouzinos)
+* Improved: global.css Critical Path CSS file automatically created on theme switch.
+
 = 2.7.5 =
 * Bugfix: Full CSS export is missing quotes in url translation.
 

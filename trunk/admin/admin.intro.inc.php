@@ -1,17 +1,4 @@
-<script>
-function showOffer() {
-	jQuery('#limitedoffer').toggle();
-	jQuery('#applybtn').toggle();
-	jQuery('#applyofferbtn').toggle();
-	jQuery('html, body').animate({ scrollTop: (jQuery('#limitedofferhead').offset().top - 40) }, 500);
-};
 
-if (document.location.hash === '#offer') {
-	jQuery(function() {
-		showOffer();
-	});
-}
-</script>
 <div class="wrap abovethefold-wrapper">
 	<div id="poststuff">
 		<div id="post-body" class="metabox-holder">
@@ -23,74 +10,6 @@ if (document.location.hash === '#offer') {
 						<span><?php _e( 'Introduction', 'abovethefold' ); ?></span>
 					</h3>
 					<div class="inside testcontent">
-
-						<br />
-						<div style="text-align:center;">
-							<h1 id="limitedofferhead">Limited Time Offer: Early Access To <strong>New Optimization Plugin</strong></h1>
-							<p style="font-size:18px;line-height:22px;margin-top:0px;">Easy to use (plug and play) and automated Google PageSpeed <span class="g100">100</span> score. </p>
-							<p style="font-size:18px;line-height:22px;"><a href="javascript:void(0);" id="applyofferbtn" onclick="showOffer();" class="button button-primary" style="font-size:16px;line-height:32px;height:34px;">Read More</a>&nbsp;&nbsp;<a href="https://www.paypal.me/pagespeed/100usd" target="_blank" class="button button-green" style="padding-top:5px;font-size:18px;line-height:20px;height:54px;font-weight:bold;display:none;" id="applybtn">Apply For Offer<br /><span style="font-size:12px;line-height:14px;font-weight:normal;">and get upwards of <strong>$600</strong> in value</span></a></p>
-						</div>
-
-						<fieldset class="limited" style="display:none;" id="limitedoffer">
-							<legend>Advanced WordPress Optimization</legend>
-							<div class="c">
-								<p>We are developing a new premium optimization plugin that provides a complete solution for the full spectrum of website performance (frontend and backend). The new plugin will enable to achieve a stable Google PageSpeed <span class="g100">100</span> score almost automatically.</p>
-								<p>Unlike this plugin, the new plugin will be <strong>automated and easy to use</strong>.</p>
-
-								<p>The new plugin will offer the following unique features:</p>
-
-								<ul>
-									<li>Setup in just 10 minutes and up to 10x better speed than other plugins (verifiable by performance engineers).</li>
-									<li><strong>Automated Critical Path CSS creation</strong> to create and maintain professional quality critical CSS for unlimited pages.</li>
-									<li>Semi-automated Google PageSpeed optimization: a step by step guide that enables to semi-automatically achieve a Google PageSpeed <span class="g100">100</span> score, often within just 10 minutes for users with no technical knowledge.</li>
-									<li>Professional javascript minification and optimization. Most existing (premium) WordPress plugins offer minification at most, the new plugin will offer true Javascript optimization using professional software such as <a href="https://developers.google.com/closure/compiler/?hl=<?php print $lgcode;?>" target="_blank">Google Closure Compiler</a> that optimizes javascript for speed.</li>
-									<li>Professional CSS minification and optimization. Similar to Javascript optimization, the new plugin will offer advanced CSS optimization such as the removal of unused CSS to achieve a smaller size and much better CSS performance.</li>
-									<li>Professional HTML optimization. Most (premium) plugins simply compress HTML using regular expressions, the new plugin will provide HTML optimization using professional software to deliver the best (and a reliable) result.</li>
-									<li>Professional image optimization. Most image optimization plugins depend on PHP based solutions, the new plugin will enable the use of the latest professional image optimization software including <a href="https://developers.google.com/speed/webp/?hl=<?php print $lgcode;?>" target="_blank">Google WebP image optimization</a> (a unique feature that is beneficial for SEO).</li>
-									<li>Per page CSS sprite creation. A unique website performance optimization innovation that enables per page CSS sprite creation that will load all images of a page in 1 optimized request. On pages with 100+ images such as webshop index pages it will physically improve the speed 10x or more, even for professional optimized websites. Using CSS sprites an instant load time feeling can be provided for complex webshop pages. It will be stable and usable for high traffic webshops.</li>
-									<li>Full page cache solutions that offer the best speed possible.</li>
-									<li>Full page CDN innovation that enables fast international website speed and that enables to achieve top positions in Google in multiple countries (we have evidence that it will work well to get international premium rankings with a single website).</li>
-									<li>Focus on website performance in relation to SEO (results in Google).</li>
-								</ul>
-
-								<p>And much more website performance innovations, some of which will amaze website performance optimization specialists such as for example <strong>Fetch Stream API based javascript loading</strong> (1 request for 'per file' based javascript loading with localStorage cache to achieve the best javascript speed possible in all situations while abiding WordPress dependencies).</p>
-
-								<p>The new plugin is based on an <strong>Optimization API</strong> (usable via Node.js, Amazon Lambda and Google Cloud Functions) that will be provided at a monthly subscription fee.</p> 
-
-								<p>As a limited time offer to fund the development of the new plugin we offer users of the Above The Fold Optimization plugin the opportunity to purchase life time access to the new plugin and the Optimization API + premium installation for a onetime fee of 100 USD via PayPal (valid for 1 website). The new optimization plugin will be available by March 2017. PayPal offers 6 months buyers protection so you will be able to order a refund if the plugin is not ready within 3 months or if it does not deliver on your expectations.</p>
-
-								<p>The purchase will include premium installation. This means that you can expect a Google PageSpeed <span class="g100">100</span> score.</p>
-
-								<p>The offer will <strong>save hundreds of dollars</strong> in subscription costs and <strong>premium installation is provided for free</strong> (an additional saving of hundreds of dollars).</p>
-
-								<p>You will be able to request a refund for any reason in a period of 6 months if the plugin does not deliver on your expectations.</p>
-
-								<p>The offer will be available until sufficient funding has been reached. The value of the offer is upwards of 600 USD. Premium installation for a Google PageSpeed <span class="g100">100</span> score is costly. Other service agencies sometimes charge more than 1000 USD for it.</p>
-
-								<p>To apply for the offer please send 100 USD to PayPal <a href="https://www.paypal.me/pagespeed/100usd" target="_blank">info@pagespeed.pro</a> (verified business account, 15 years old). We will provide you with life time access to the plugin and Optimization API + premium installation for 1 website as soon as the new optimization plugin is ready.</p>
-								<h4 style="font-size:22px;line-height:26px;margin-bottom:0px;">Apply For Offer<br /><a href="https://www.paypal.me/pagespeed/100usd" target="_blank">https://www.paypal.me/pagespeed/100usd</a></h4>
-								<p class="description" style="margin-top:10px;">You will receive an invoice. You will be contacted by email once the optimization plugin is ready.</p>
-
-								<br />
-								<h1 style="font-weight:bold;font-size:32px;line-height:34px;">Thank you for supporting a new WordPress Optimization plugin!</h1>
-								<h1 style="font-size:26px;line-height:28px;">The new plugin will make professional level optimization available for WordPress websites!</h1>
-
-								<br />
-								<div style="padding-left:10px;padding-bottom:1em;">
-									<h4 style="margin-bottom:0px;">Optimalisatie BV (Optimization Co.)</h4>
-									<address>Jansdam 2a<br />
-									3512 HB Utrecht<br />
-									The Netherlands</address>
-									<a href="mailto:info@pagespeed.pro">info@pagespeed.pro</a>
-									<br /><br />
-									Company registration number: 64458709<br />
-									IBAN: NL29TRIO0391044346 in name of Optimalisatie BV
-								</div>
-							</div>
-						</fieldset>
-						<br />
-						<hr />
-						<br />
 
 						<p>Take a moment to explore the abilities of this plugin. This plugin is not a simple <code>on/off</code> plugin so do not expect a result by simply activating the plugin.</p>
 

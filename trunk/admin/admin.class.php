@@ -51,7 +51,8 @@ class Abovethefold_Admin {
     	'settings' => 'Settings',
     	'build-tool' => 'Critical CSS Creator',
 		'compare' => 'Quality Test',
-		'monitor' => 'Monitor'
+		'monitor' => 'Monitor',
+		'offer' => 'New Plugin'
     );
 
 	/**
@@ -754,7 +755,12 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
         echo '<h1 class="nav-tab-wrapper">';
         foreach( $this->tabs as $tabkey => $name ){
             $class = ( $tabkey == $tab ) ? ' nav-tab-active' : '';
-            echo "<a class='nav-tab$class' href='?page=abovethefold&amp;tab=$tabkey'>$name</a>";
+            if ($tabkey === 'offer') {
+            	$class .= ( $tabkey == 'offer' ) ? ' nav-tab-offer' : '';
+            	echo "<a class='nav-tab$class' href='https://pagespeed.pro/innovation/advanced-wordpress-optimization/' target='_blank'>$name</a>";
+            } else {
+            	echo "<a class='nav-tab$class' href='?page=abovethefold&amp;tab=$tabkey'>$name</a>";
+            }
 
         }
         echo '</h1>';
