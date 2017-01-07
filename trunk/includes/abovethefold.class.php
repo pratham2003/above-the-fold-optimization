@@ -489,6 +489,12 @@ class Abovethefold {
     	if (!is_dir($dir)) {
     		return false;
     	}
+
+    	// restrict access to plugin directories
+    	if (strpos($dir,'/abtf/') === false && strpos($dir,'/abovethefold/') === false) {
+    		return false;
+    	}
+
 		$files = array_diff(scandir($dir), array('.','..')); 
 		foreach ($files as $file) { 
 			(is_dir("$dir/$file")) ? $this->rmdir("$dir/$file") : @unlink("$dir/$file"); 

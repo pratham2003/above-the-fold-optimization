@@ -1241,3 +1241,4 @@ class Abovethefold_Proxy {
 		$this->CTRL->file_put_contents($cronlog, 'completed: ' . date('r') . "\nDeleted: " . $stats['deleted'] . "\nFiles: " . $stats['files'] . "\nSize: " . $stats['size']);
 	}
 }
+
