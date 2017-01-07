@@ -709,7 +709,7 @@ class Abovethefold {
 	public function deactivate() {
 
 		// remove cron
-		wp_clear_scheduled_hook('wp_next_scheduled');
+		wp_clear_scheduled_hook('abtf_cron');
 	}
 
 	/**
