@@ -711,7 +711,7 @@ class Abovethefold_Admin {
 			$saved_notice .= '<p style="font-style:italic;font-size:14px;line-height:16px;">Page related caches from <a href="https://github.com/optimalisatie/above-the-fold-optimization/tree/master/trunk/modules/plugins/" target="_blank">supported plugins</a> cleared.</p>';
 		}
 
-		$this->CTRL->admin->set_notice($saved_notice, 'NOTICE');
+		$this->set_notice($saved_notice, 'NOTICE');
 	}
 
     /**
@@ -810,7 +810,8 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 						/**
 						 * Error notices remain visible for 1 minute
 						 */
-						if (isset($notice['date']) && $notice['date'] > (time() - 60)) {
+						$expire = (isset($notice['expire']) && is_numeric($notice['expire'])) ? $notice['expire'] : 60;
+						if (isset($notice['date']) && $notice['date'] > (time() - $expire)) {
 							$persisted_notices[] = $notice;
 						}
 
@@ -836,7 +837,9 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 	/**
 	 * Set admin notice
 	 */
-	public function set_notice($notice,$type = 'NOTICE') {
+	public function set_notice($notice,$type = 'NOTICE',$notice_config = array()) {
+
+		$type = strtoupper($type);
 
 		$notices = get_option( 'abovethefold_notices', '' );
 		if (!is_array($notices)) {
@@ -845,10 +848,12 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 		if ( empty( $notice ) ) {
 			delete_option( 'abovethefold_notices' );
 		} else {
-			array_unshift($notices,array(
-				'text' => $notice,
-				'type' => $type
-			));
+
+			$notice_config = (is_array($notice_config)) ? $notice_config : array();
+			$notice_config['text'] = $notice;
+			$notice_config['type'] = $type;
+
+			array_unshift($notices,$notice_config);
 			update_option( 'abovethefold_notices', $notices, false );
 		}
 
@@ -891,5 +896,14 @@ window.abtf_pagesearch_optgroups = <?php print json_encode($this->page_search_op
 		$upgrade = new Abovethefold_Upgrade($this->CTRL);
 		$upgrade->upgrade();
     }
+
+    /**
+     * File size
+     */
+    public function human_filesize($bytes, $decimals = 2) {
+	    $size = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
+	    $factor = floor((strlen($bytes) - 1) / 3);
+	    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
+	}
 
 }

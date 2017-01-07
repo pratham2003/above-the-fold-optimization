@@ -17,12 +17,16 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
  * Remove settings
  */
 delete_option( 'abovethefold' );
+delete_option( 'abovethefold-proxy-stats' );
+delete_option( 'abovethefold-criticalcss' );
+
+// remove cron
+wp_clear_scheduled_hook('wp_next_scheduled');
 
 /**
  * Remove above the fold cache directory
  */
-$dir = wp_upload_dir();
-$path = trailingslashit($dir['basedir']) . 'abovethefold/';
+$path = trailingslashit(ABTF_CACHE_DIR);
 if (is_dir($path)) {
 
 	// Recursive delete

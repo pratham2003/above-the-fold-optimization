@@ -67,7 +67,7 @@ class Abovethefold_Admin_CSS {
 						$fontsdir = trailingslashit(get_stylesheet_directory()) . 'fonts/';
 						if (!is_dir($fontsdir)) {
 							// create fonts directory
-							if (!@mkdir( $fontsdir, $this->CTRL->CHMOD_DIR)) {
+							if (!$this->CTRL->mkdir( $fontsdir )) {
 								$this->CTRL->admin->set_notice('Failed to create font directory '.htmlentities(str_replace(ABSPATH,'/',trailingslashit(get_stylesheet_directory()) . 'fonts/'),ENT_COMPAT,'utf-8').'', 'ERROR');
 							}
 						}
@@ -77,6 +77,16 @@ class Abovethefold_Admin_CSS {
 						if ($zip->open($_FILES['googlefontzip']['tmp_name']) === TRUE) {
 						    $zip->extractTo($fontsdir);
 						    $zip->close();
+
+						    // Set file permissions to make fonts writable by FTP
+						    $fontfiles = array_diff(scandir($fontsdir), array('..', '.'));
+						    foreach ($fontfiles as $fontfile) {
+
+						    	// font files only
+						    	if (is_file($fontsdir . $fontfile) && preg_match('#\.(eot|woff|woff2|svg|ttf)$#Ui',$fontfile)) {
+						    		@chmod($fontsdir . $fontfile, 0666);
+						    	}
+						    }
 
 						    $this->CTRL->admin->set_notice('<p style="font-size:18px;">Google Font zip-file extracted successfully.</p>', 'NOTICE');
 						} else {

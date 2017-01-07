@@ -42,33 +42,6 @@ class Abovethefold_Upgrade {
 			if (version_compare($current_version, '2.5.0', '<')) {
 
 				/**
-				 * Move global critical CSS to new location
-				 */
-
-				$global_cssfile = $this->CTRL->cache_path() . 'criticalcss_global.css';
-
-				if (!file_exists($global_cssfile)) {
-					
-					// Check old location
-					$old_cssfile = $this->CTRL->cache_path() . 'inline.min.css';
-					if (file_exists($old_cssfile)) {
-
-						/**
-						 * Move file to new location
-						 */
-						$old_css = file_get_contents( $old_cssfile );
-						
-						// store contents of old css to new location
-						file_put_contents( $global_cssfile, $old_css );
-						if (!file_exists($global_cssfile) || file_get_contents( $global_cssfile ) !== $old_css) {
-							wp_die('Failed to move critical CSS file to new location (v2.5+). Please check the write permissions for file:<br /><br /><strong>' . $global_cssfile . '</strong><br /><br />Old critical css file location:<br /><br />'.$old_cssfile.' ');
-						}
-
-						@unlink( $old_cssfile );
-					}
-				}
-
-				/**
 				 * Disable Google Web Font Optimizer plugin if ABTF Webfont Optimization is enabled
 				 */
 				if ($options['gwfo']) {
@@ -177,15 +150,29 @@ class Abovethefold_Upgrade {
 			 */
 			if (version_compare($current_version, '2.7', '<=')) {
 
+				$dir = wp_upload_dir();
+				$old_cachepath = trailingslashit($dir['basedir']) . 'abovethefold/';
+				if (!is_dir($old_cachepath)) {
+					$old_cachepath = false;
+				}
+
 				/**
 				 * Move critical CSS to new location (theme directory)
 				 */
 				
 				// global css
 				$inlinecss = '';
-				$old_cssfile = $this->CTRL->cache_path() . 'criticalcss_global.css';
-				if (file_exists($old_cssfile)) {
-					$inlinecss = file_get_contents($old_cssfile);
+
+				if ($old_cachepath) {
+					$old_cssfile = $old_cachepath . 'criticalcss_global.css';
+					if (file_exists($old_cssfile)) {
+						$inlinecss = file_get_contents($old_cssfile);
+					} else {
+						$old_cssfile = $old_cachepath . 'inline.min.css';
+						if (file_exists($old_cssfile)) {
+							$inlinecss = file_get_contents($old_cssfile);
+						}
+					}
 				}
 
 				// save new critical css file
@@ -200,13 +187,13 @@ class Abovethefold_Upgrade {
 	 			}
 				
 				// conditional CSS
-				if (isset($options['conditional_css']) && !empty($options['conditional_css'])) {
+				if ($old_cachepath && isset($options['conditional_css']) && !empty($options['conditional_css'])) {
 
 					foreach ($options['conditional_css'] as $conditionhash => $conditional) {
 						if (empty($conditional['conditions']) || !is_array($conditional['conditions'])) { continue 1; }
 
 						$inlinecss = '';
-						$old_cssfile = $this->CTRL->cache_path() . 'criticalcss_'.$conditionhash.'.css';
+						$old_cssfile = $old_cachepath . 'criticalcss_'.$conditionhash.'.css';
 						if (file_exists($old_cssfile)) {
 							$inlinecss = file_get_contents($old_cssfile);
 						}
@@ -330,6 +317,22 @@ class Abovethefold_Upgrade {
 				}
 				
 				$update_options = true;
+			}
+
+
+			/**
+			 * Pre 2.7.6 update
+			 */
+			if (version_compare($current_version, '2.7.6', '<=')) {
+
+				/**
+				 * Remove plugin directory from /uploads/
+				 */
+				$dir = wp_upload_dir();
+				$old_cachepath = trailingslashit($dir['basedir']) . 'abovethefold/';
+				if (is_dir($old_cachepath)) {
+					$this->CTRL->rmdir($old_cachepath);
+				}
 			}
 
 			// remove old options

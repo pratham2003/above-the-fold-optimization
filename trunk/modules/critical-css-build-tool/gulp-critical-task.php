@@ -229,7 +229,8 @@ module.exports = function (gulp, plugins, critical) {
             )
         ); 
 
-		$chmod = (string)decoct($this->CTRL->CHMOD_FILE);
+		$chmodfile = ( ! defined('FS_CHMOD_FILE') ) ? intval( substr(sprintf('%o', fileperms( ABSPATH . 'index.php' )),-4), 8 ) : FS_CHMOD_FILE;
+		$chmod = (string)decoct($chmodfile);
 		if (strlen($chmod) === 3) {
 
 			$chmodparts = str_split($chmod);

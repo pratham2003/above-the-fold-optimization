@@ -66,12 +66,6 @@ class Abovethefold {
 	public $template_redirect_called = false;
 
 	/**
-	 * Default permissions
-	 */
-	public $CHMOD_DIR;
-	public $CHMOD_FILE;
-
-	/**
 	 * Construct and initiated Abovethefold class
 	 */
 	public function __construct() {
@@ -88,10 +82,6 @@ class Abovethefold {
 			$this->disabled = true;
 		}
 
-		// set permissions
-		$this->CHMOD_DIR = ( ! defined('FS_CHMOD_DIR') ) ? intval( substr(sprintf('%o', fileperms( ABSPATH )),-4), 8 ) : FS_CHMOD_DIR;
-		$this->CHMOD_FILE = ( ! defined('FS_CHMOD_FILE') ) ? intval( substr(sprintf('%o', fileperms( ABSPATH . 'index.php' )),-4), 8 ) : FS_CHMOD_FILE;
-
 		/**
 		 * Register Activate / Deactivate hooks.
 		 */
@@ -105,7 +95,7 @@ class Abovethefold {
 		// a hash is used to prevent random traffic or abuse
 		$view_hash = md5(SECURE_AUTH_KEY . AUTH_KEY);
 
-		// availabble views
+		// available views
 		$views = array(
 
 			// extract full CSS view
@@ -167,15 +157,15 @@ class Abovethefold {
 		 */
 		$this->proxy = new Abovethefold_Proxy($this);
 
-		// do not load rest of plugin for proxy
-		if ($this->view === 'abtf-proxy') {
-			return;
-		}
-
 		/**
 		 * Load admin controller
 		 */
 		$this->admin = new Abovethefold_Admin( $this );
+
+		// do not load rest of plugin for proxy
+		if ($this->view === 'abtf-proxy') {
+			return;
+		}
 
 		// plugin module controller
 		$this->plugins = new Abovethefold_Plugins( $this );
@@ -204,6 +194,12 @@ class Abovethefold {
 			// wordpress header
 			$this->loader->add_action('wp_head', $this, 'header', 1);
 		}
+
+		/**
+		 * Setup cron
+		 */
+		$this->loader->add_action('abtf_cron', $this, 'cron');
+		$this->loader->add_action('wp', $this,  'setup_cron');
 	}
 
 	/**
@@ -333,6 +329,11 @@ class Abovethefold {
 		 */
 		require_once WPABTF_PATH . 'includes/proxy.class.php';
 
+		/**
+		 * The class responsible for defining all actions that occur in the Dashboard.
+		 */
+		require_once WPABTF_PATH . 'admin/admin.class.php';
+
 		// do not load the rest of the dependencies for proxy
 		if ($this->view === 'abtf-proxy') {
 			return;
@@ -380,11 +381,6 @@ class Abovethefold {
 		 */
 		require_once WPABTF_PATH . 'includes/plugins.class.php';
 		require_once WPABTF_PATH . 'modules/plugins.class.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the Dashboard.
-		 */
-		require_once WPABTF_PATH . 'admin/admin.class.php';
 
 	}
 	
@@ -470,48 +466,108 @@ class Abovethefold {
 	}
 
 	/**
+	 * Create directory
+	 */
+	public function mkdir( $path, $mask = 0777 ) {
+		if (!is_dir($path)) {
+			if (!@mkdir( $path, $mask )) {
+				wp_die('Failed to write to: ' . $path);
+			}
+		}
+		if (is_dir($path)) {
+			chmod($path, $mask);
+			return true;
+		}
+
+		return false; // error
+	}
+
+    /**
+     * Remove directory
+     */
+    public function rmdir($dir) {
+    	if (!is_dir($dir)) {
+    		return false;
+    	}
+		$files = array_diff(scandir($dir), array('.','..')); 
+		foreach ($files as $file) { 
+			(is_dir("$dir/$file")) ? $this->rmdir("$dir/$file") : @unlink("$dir/$file"); 
+		} 
+		return @rmdir($dir); 
+	}
+
+	/**
+	 * File put contents
+	 */
+	public function file_put_contents( $file, $contents, $mask = 0666 ) {
+		if (file_exists($file)) {
+			@unlink($file);
+		}
+		file_put_contents( $file, $contents );
+
+		if (file_exists($file)) {
+			chmod($file , $mask);
+			return true;
+		}
+
+		return false; // error
+	}
+
+	/**
 	 * Cache path
 	 */
-	public function cache_path() {
+	public function cache_path( $type = '', $mask = 0777 ) {
 
-		$dir = wp_upload_dir();
-		$path = trailingslashit($dir['basedir']) . 'abovethefold/';
+		$path = ABTF_CACHE_DIR;
 		if (!is_dir($path)) {
-			if (!@mkdir( $path, $this->CHMOD_DIR)) {
+			if (!$this->mkdir( $path, $mask )) {
 				wp_die('Failed to write to ' . $path);
 			}
 		}
+
+		switch($type) {
+			case "proxy":
+				$path .= 'proxy/';
+			break;
+		}
+		if (!is_dir($path)) {
+			if (!$this->mkdir( $path, $mask )) {
+				wp_die('Failed to write to ' . $path);
+			}
+		}
+
 		return apply_filters('abtf_cache_path', $path);
 	}
 
 	/**
 	 * Cache URL
 	 */
-	public function cache_dir( $cdn = '' ) {
-		$dir = wp_upload_dir();
+	public function cache_dir( $type = '' ) {
 
-		if ($cdn !== '') {
-			$path = trailingslashit($cdn) . trailingslashit(str_replace(trailingslashit(ABSPATH),'',$dir['basedir'])) . 'abovethefold/';
-		} else {
-			$path = trailingslashit($dir['baseurl']) . 'abovethefold/';
+		$path = ABTF_CACHE_URL;
+		switch($type) {
+			case "proxy":
+				$path .= 'proxy/';
+			break;
 		}
+
 		return apply_filters('abtf_cache_dir', $path);
 	}
 
 	/**
 	 * Theme content path
 	 */
-	public function theme_path( $type = false ) {
+	public function theme_path( $type = false, $mask = 0777 ) {
 
 		$path = trailingslashit(get_stylesheet_directory()) . 'abovethefold/';
 		if (!is_dir($path)) {
 
-			if (!@mkdir( $path, $this->CHMOD_DIR)) {
+			if (!$this->mkdir( $path, $mask )) {
 				wp_die('Failed to write to ' . $path);
 			}
 
 			// put readme in /abovethefold/ directory
-			file_put_contents( $path . 'readme.txt', file_get_contents( WPABTF_PATH . 'public/readme.txt' ) );
+			$this->file_put_contents( $path . 'readme.txt', file_get_contents( WPABTF_PATH . 'public/readme.txt' ) );
 		}
 
 		if ($type) {
@@ -519,7 +575,7 @@ class Abovethefold {
 				case "critical-css":
 					$path .= 'css/';
 					if (!is_dir($path)) {
-						if (!@mkdir( $path, $this->CHMOD_DIR)) {
+						if (!$this->mkdir( $path, $mask)) {
 							wp_die('Failed to write to ' . $path);
 						}
 					}
@@ -553,7 +609,7 @@ class Abovethefold {
 	}
 
 	/**
-	 * Remote get (previously cURL)
+	 * Remote get using wp_remote_get (previously cURL)
 	 */
 	public function remote_get($url, $args = array() ) {
 
@@ -567,13 +623,23 @@ class Abovethefold {
 			'user-agent'  => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36',
 		),$args);
 
+		// Request headers
+		if (!isset($args['headers']) || !is_array($args['headers'])) {
+			$args['headers'] = array();
+		}
+
+		/**
+		 * Disable keep-alive
+		 */
+		$args['headers'][] = "Connection: close";
+
+		// Request
 		$res = wp_remote_get($url, $args);
 		if( is_array($res) ) {
 			return trim($res['body']);
 		}
 
 		return false; // error
-
 	}
 
 	/**
@@ -626,6 +692,9 @@ class Abovethefold {
 			update_option( "abovethefold", $default_options, true );
 		}
 
+		// setup cron
+		$this->setup_cron();
+
 	}
 
 	/**
@@ -633,6 +702,27 @@ class Abovethefold {
 	 */
 	public function deactivate() {
 
+		// remove cron
+		wp_clear_scheduled_hook('wp_next_scheduled');
+	}
+
+	/**
+	 * Cron method
+	 */
+	public function cron() {
+
+		// proxy cleanup cron
+		$this->proxy->cron_prune();
+	}
+
+	/**
+	 * Setup cron
+	 */
+	public function setup_cron() {
+		if ( function_exists('wp_next_scheduled') && !wp_next_scheduled( 'abtf_cron' ) ) {
+			//schedule the event to run twice daily
+			wp_schedule_event( current_time( 'timestamp' ), 'twicedaily', 'abtf_cron' );
+		}
 	}
 
 }

@@ -36,6 +36,9 @@
 		$cssPreload = '';
 	}
 
+	// cache stats
+	$cache_stats = $this->CTRL->proxy->cache_stats();
+
 ?>
 <form method="post" action="<?php echo admin_url('admin-post.php?action=abtf_proxy_update'); ?>" class="clearfix">
 	<?php wp_nonce_field('abovethefold'); ?>
@@ -44,13 +47,13 @@
 			<div id="post-body" class="metabox-holder">
 				<div id="post-body-content">
 					<div class="postbox">
+
+						<div style="float:right;z-index:9000;position:relative;"><img src="<?php print WPABTF_URI; ?>admin/images/browsercache-error.png" alt="Google Bot" width="350" title="Google Webmasters Monitor"></div>
+
 						<h3 class="hndle">
 							<span><?php _e( 'External Resource Proxy', 'abovethefold' ); ?></span>
 						</h3>
 						<div class="inside testcontent">
-
-							<div style="float:right;z-index:9000;position:relative;"><img src="<?php print WPABTF_URI; ?>admin/images/browsercache-error.png" alt="Google Bot" width="400" title="Google Webmasters Monitor">
-							</div>
 
 							<p>The external resource proxy loads external resources such as scripts and stylesheets via a caching proxy.</p>
 
@@ -156,6 +159,32 @@
 							<?php
 								submit_button( __( 'Save' ), 'primary large', 'is_submit', false );
 							?>
+
+							<br /><br />
+
+							<h3 style="margin:0px;padding:0px;" id="stats">Cache Stats<a name="stats">&nbsp;</a></h3>
+							<table>
+								<tbody>
+									<tr>
+										<td align="right" width="70" style="text-align:right;font-size:14px;">Files:</td>
+										<td style="font-size:14px;"><?php echo number_format_i18n( $cache_stats['files'], 0 ); ?></td>
+									</tr>
+									<tr>
+										<td align="right" width="70" style="text-align:right;font-size:14px;">Size:</td>
+										<td style="font-size:14px;"><?php echo $this->CTRL->admin->human_filesize($cache_stats['size']); ?></td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2" style="padding:0px;margin:0px;font-size:11px;">
+											<p style="padding:0px;margin:0px;font-size:11px;">Stats last updated: <?php echo date('r',$cache_stats['date']); ?></p>
+											<hr />
+											<a href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'proxy', 'update_cache_stats' => 1 ), admin_url( 'admin.php' ) ); ?>" class="button button-small">Refresh Stats</a>
+											<a href="<?php echo add_query_arg( array( 'page' => 'abovethefold', 'tab' => 'proxy', 'empty_cache' => 1 ), admin_url( 'admin.php' ) ); ?>" onclick="if (!confirm('Are you sure you want to empty the cache directory?',true)) { return false; } " class="button button-small">Empty Cache</a>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
 						</div>
 					</div>
 				</div>

@@ -417,8 +417,7 @@ class Abovethefold_Critical_CSS {
 
 		$criticalcss_dir = $this->CTRL->theme_path( 'critical-css' );
 
-		file_put_contents($criticalcss_dir . $file,$cssheader . $css);
-		chmod($criticalcss_dir . $file, $this->CTRL->CHMOD_FILE);
+		$this->CTRL->file_put_contents($criticalcss_dir . $file,$cssheader . $css);
 
 		return (!empty($errors)) ? $errors : false;
 	}
