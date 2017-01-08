@@ -103,13 +103,15 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.8 =
+* Added: module for [LiteSpeed Cache](https://wordpress.org/plugins-wp/litespeed-cache/). ([pending evalution by requesting user](https://wordpress.org/support/topic/please-add-support-for-litespeed-cache/))
+
 = 2.7.7 =
 * Updated: cache directory moved to /wp-content/cache/abtf/
 * Updated: default file permissions set to 666 (public read & write) to allow FTP access.
 * Added: proxy cache cleanup cron.
 * Added: proxy cache stats on proxy configuration page.
 * Added: file and expire meta header added to proxy cache files.
-* Added: module for [LiteSpeed Cache](https://wordpress.org/plugins-wp/litespeed-cache/). ([pending evalution by requesting user](https://wordpress.org/support/topic/please-add-support-for-litespeed-cache/))
 * Improved: wp_remote_get implementation optimized by disabling keep-alive. (@aamir2007)
 
 = 2.7.6 =
