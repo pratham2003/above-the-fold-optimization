@@ -740,9 +740,7 @@ class Abovethefold_Proxy {
 
 		// cache file
 		$cache_file = $this->cache_file_path($filehash, $type);
-if (isset($_GET['x'])) {
-print_r($filehash . ' --- ' . $cache_file . ' .. ' . file_exists($cache_file));exit;
-}
+
 		/**
 		 * Return cache file
 		 */
