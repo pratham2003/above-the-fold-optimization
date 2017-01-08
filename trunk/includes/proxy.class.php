@@ -257,9 +257,8 @@ class Abovethefold_Proxy {
 						}
 					}
 					if (isset($url_config['cdn']) && $url_config['cdn']) {
-						$preload_url[4] = preg_replace('|^(http(s)?:)?//[^/]+/|Ui',trailingslashit($url_config['cdn']),$this->CTRL->cache_dir( 'proxy'));
+						$preload_url[4] = preg_replace('|^(http(s)?:)?//[^/]+/|Ui',trailingslashit($url_config['cdn']),$this->CTRL->cache_dir('proxy'));
 					}
-
 					$this->{$type . '_preload'}[] = $preload_url;
 
 				} else if ($cache_hash) {
@@ -588,7 +587,7 @@ class Abovethefold_Proxy {
 			return false;
 		}
 
-		$url = $this->CTRL->cache_dir( 'proxy');
+		$url = $this->CTRL->cache_dir('proxy');
 		
 		$dir_blocks = array_slice(str_split($hash, 2), 0, 3);
 		foreach ($dir_blocks as $block) {
@@ -741,7 +740,9 @@ class Abovethefold_Proxy {
 
 		// cache file
 		$cache_file = $this->cache_file_path($filehash, $type);
-
+if (isset($_GET['x'])) {
+print_r($filehash . ' --- ' . $cache_file . ' .. ' . file_exists($cache_file));exit;
+}
 		/**
 		 * Return cache file
 		 */
@@ -1089,7 +1090,7 @@ class Abovethefold_Proxy {
 
 		if (!empty($preload)) {
 			$jssettings['proxy']['preload'] = $preload;
-			$jssettings['proxy']['base'] = $this->CTRL->cache_dir( 'proxy');
+			$jssettings['proxy']['base'] = $this->CTRL->cache_dir('proxy');
 		}
 
 		$keys = array('js_include','css_include','js_exclude','css_exclude');

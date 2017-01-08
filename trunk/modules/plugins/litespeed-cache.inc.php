@@ -14,7 +14,7 @@
  * @author     PageSpeed.pro <info@pagespeed.pro>
  */
 
-class Abovethefold_OPP_LiteSpeedCache extends Abovethefold_OPP {
+class Abovethefold_OPP_LitespeedCache extends Abovethefold_OPP {
 
 	/**
 	 * Plugin file reference
