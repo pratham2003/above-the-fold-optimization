@@ -103,6 +103,9 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.9 =
+* Bugfix: PHP 7 does not support methods with a double underscore prefix.
+
 = 2.7.8 =
 * Added: module for [LiteSpeed Cache](https://wordpress.org/plugins-wp/litespeed-cache/). ([pending evaluation by requesting user](https://wordpress.org/support/topic/please-add-support-for-litespeed-cache/))
 

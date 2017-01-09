@@ -161,14 +161,14 @@ class Abovethefold_Admin_BuildTool {
 		if (is_dir($gulptaskdir)) {
 
 			// remove existing
-			function __rmdir_recursive($dir,$delete=true) {
+			function abtf_rmdir_recursive($dir,$delete=true) {
 				$files = array_diff(scandir($dir), array('.','..')); 
 				foreach ($files as $file) { 
-					(is_dir("$dir/$file")) ? __rmdir_recursive("$dir/$file") : @unlink("$dir/$file"); 
+					(is_dir("$dir/$file")) ? abtf_rmdir_recursive("$dir/$file") : @unlink("$dir/$file"); 
 				} 
 				return ($delete) ? @rmdir($dir) : false; 
 			}
-			__rmdir_recursive($gulptaskdir,false);
+			abtf_rmdir_recursive($gulptaskdir,false);
 		}
 
 		if (!is_dir($gulptaskdir)) {

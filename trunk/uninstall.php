@@ -30,12 +30,12 @@ $path = trailingslashit(ABTF_CACHE_DIR);
 if (is_dir($path)) {
 
 	// Recursive delete
-	function __rmdir_recursive($dir) {
+	function abtf_rmdir_recursive($dir) {
 		$files = array_diff(scandir($dir), array('.','..')); 
 		foreach ($files as $file) { 
-			(is_dir("$dir/$file")) ? __rmdir_recursive("$dir/$file") : @unlink("$dir/$file"); 
+			(is_dir("$dir/$file")) ? abtf_rmdir_recursive("$dir/$file") : @unlink("$dir/$file"); 
 		} 
 		return @rmdir($dir); 
 	}
-	__rmdir_recursive($path);
+	abtf_rmdir_recursive($path);
 }
