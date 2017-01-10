@@ -13,7 +13,7 @@
 			<a href="https://pagespeed.pro/innovation/instant/" class="ws-info" target="_blank">Information</a> / <a href="https://www.fastestwebsite.co/" class="ws-info" target="_blank">Demo (WooCommerce)</a>
 			<span id="livehtml" style="display:none;"></span></p>
 		</div>
-		<p class="info_yellow" style="z-index:999;clear:both;background:#EFFBFF;border-color:#0073aa;font-size:14px;">Support is restricted to email due to a conflict with WordPress management. We got smeared as a spammer and refuse to accept that. The WordPress forum will not be used to provide support.</p>
+		<p class="info_yellow" style="z-index:999;clear:both;background:#EFFBFF;border-color:#0073aa;font-size:14px;">Support is restricted to email due to a conflict with WordPress management. We got unrightfully smeared as a spammer and refuse to accept that. The WordPress forum will not be used to provide support.</p>
 	</div>
 </div>
 <?php
