@@ -103,6 +103,9 @@ The plugin contains a tool to manage Critical CSS Generator tasks that optionall
 
 == Changelog ==
 
+= 2.7.10 =
+* Update: updated support policy.
+
 = 2.7.9 =
 * Bugfix: PHP 7 does not support methods with a double underscore prefix.
 
