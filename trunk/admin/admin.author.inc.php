@@ -2,7 +2,9 @@
 	<div class="authorbox">
 		<div class="inside" style="width:auto;margin:0px;float:left;position:relative;margin-right:2em;">
 			<p style="z-index:999;">Developed by <strong><a href="https://pagespeed.pro/#utm_source=wordpress&amp;utm_medium=plugin&amp;utm_term=optimization&amp;utm_campaign=Above%20The%20Fold%20Optimization" target="_blank">PageSpeed.pro</a></strong>
-			<br />Contribute via <a href="https://github.com/optimalisatie/above-the-fold-optimization" target="_blank">Github</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization" target="_blank">Report a bug</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization/reviews/?rate=5#new-post" target="_blank">Review this plugin</a></p>
+			<br />Contribute via <a href="https://github.com/optimalisatie/above-the-fold-optimization" target="_blank">Github</a> &dash; <a href="mailto:info@pagespeed.pro" target="_blank">Report a bug</a> &dash; <a href="https://wordpress.org/support/plugin/above-the-fold-optimization/reviews/?rate=5#new-post" target="_blank">Review this plugin</a>
+			</p>
+
 		</div>
 
 		<div class="inside" style="margin:0px;float:left;font-style:italic;">
@@ -11,6 +13,7 @@
 			<a href="https://pagespeed.pro/innovation/instant/" class="ws-info" target="_blank">Information</a> / <a href="https://www.fastestwebsite.co/" class="ws-info" target="_blank">Demo (WooCommerce)</a>
 			<span id="livehtml" style="display:none;"></span></p>
 		</div>
+		<p class="info_yellow" style="z-index:999;clear:both;background:#EFFBFF;border-color:#0073aa;font-size:14px;">Support is restricted to email due to a conflict with WordPress management. We got smeared as a spammer and refuse to accept that. The WordPress forum will not be used to provide support.</p>
 	</div>
 </div>
 <?php
